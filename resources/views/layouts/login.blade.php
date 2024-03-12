@@ -15,7 +15,10 @@
 
 <body>
 
-    @yield('content')
+    <div class="bg-primary vh-100 ">
+
+        @yield('content')
+    </div>
 
     {{-- <!-- Include Bootstrap JavaScript and jQuery -->
     <script src="{{ asset('path/to/jquery.min.js') }}"></script>
