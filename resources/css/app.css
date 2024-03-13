@@ -1,0 +1,48 @@
+body
+{
+    font-family: 'Poppins', sans-serif;
+    background: #171717;
+}
+
+
+/*Login Container*/
+
+.box-area
+{
+    width: 930px;
+}
+
+/*Right Box*/
+
+.right-box
+{
+    padding: 40px 30px 40px 40px;
+}
+
+/*Custom Placeholder*/
+
+::placeholder
+{
+    font-size: 16px;
+}
+
+/*Small Screens*/
+@media only screen and (max-width: 768px)
+{
+    .box-area
+    {
+        margin: 0 10px;
+    }
+
+    .left-box
+    {
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .right-box
+    {
+        padding: 20px;
+    }
+}
+
