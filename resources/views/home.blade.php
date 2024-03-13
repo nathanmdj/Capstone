@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container bg-primary ">
-        <h1 class="text-info">Home</h1>
+    <div class="bg-primary vh-100">
+        <div class="container">
 
-    </div>
-    <div class="container bg-secondary vh-100">
-        <button class="btn btn-danger mt-5">Submit</button>
+            <h1 class="text-info">Home</h1>
+        </div>
+
     </div>
 @endsection
