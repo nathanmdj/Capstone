@@ -1,0 +1,18 @@
+.home-page {
+    .main-content {
+        border: solid gray 0.5px;
+
+        .status-container {
+            border-bottom: solid gray 0.5px;
+        }
+        .post-container {
+            border-bottom: solid gray 0.5px;
+        }
+    }
+
+    .header {
+        .main-header {
+            border-inline: solid gray 0.5px;
+        }
+    }
+}

@@ -1,10 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.homeLayout')
 @section('content')
-    <div class="bg-primary vh-100">
-        <div class="container">
-
-            <h1 class="text-info">Home</h1>
-        </div>
-
+    <div class="home mt-4">
+        @include('include.submit-post')
+        @foreach ($posts as $post)
+            <div class="post-container card text-info bg-primary rounded-0 p-3">
+                <p>{{ $post->content }}</p>
+                <p>{{ $post->created_at }}</p>
+            </div>
+        @endforeach
     </div>
 @endsection
