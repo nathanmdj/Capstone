@@ -1,5 +1,7 @@
 .home-page {
+    background-color: $primary;
     .main-content {
+
         border: solid gray 0.5px;
 
         .status-container {
@@ -7,12 +9,51 @@
         }
         .post-container {
             border-bottom: solid gray 0.5px;
+            }
+            p {
+                margin: 0;
+            }
         }
+
+        span {
+            font-size: 2rem;
+            margin-right: 20px;
+            color: white;
     }
 
     .header {
         .main-header {
             border-inline: solid gray 0.5px;
+        }
+    }
+
+    .post-container:hover {
+        background-color: $post-hover !important;
+        cursor: pointer;
+    }
+
+    .post-content {
+        button:hover {
+            background-color: $post-hover;
+        }
+
+        .dropdown-menu {
+            li:hover {
+                background-color: $post-hover !important
+            }
+
+            .bi {
+                font-size: 1rem;
+                margin-right: 5px;
+            }
+
+            .menu-item {
+                background: none;
+                color: white;
+                border: none;
+                margin-left: 10px;
+                padding-block: 5px;
+            }
         }
     }
 }

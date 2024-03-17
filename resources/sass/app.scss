@@ -1,5 +1,7 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@import "../../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
 // Variables
 @import 'variables';
@@ -10,3 +12,5 @@
 @import 'globals';
 
 @import 'home';
+
+

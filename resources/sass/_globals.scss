@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
 
 body, *::before, *::after {
@@ -9,4 +10,8 @@ body, *::before, *::after {
 
 h1 {
     margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
 }

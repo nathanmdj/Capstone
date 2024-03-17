@@ -1,12 +1,14 @@
 // Body
-$body-bg: #f8fafc;
+
+
+// $body-bg: #f8fafc;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
-$primary:       #171717;
+$primary:       rgb(21, 32, 43);
 $secondary:     #444444;
 // $success:       $green ;
 $info:          #EDEDED ;
@@ -14,3 +16,19 @@ $info:          #EDEDED ;
 $danger:        #DA0037;
 // $light:         $gray-100 ;
 // $dark:          $gray-900 ;
+$post-hover: rgb(30,39,50);
+
+$dropdown-link-color: white;
+$dropdown-link-hover-bg:  $secondary;
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;

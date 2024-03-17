@@ -9,12 +9,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // $post = new Post([
-        //     'content' => 'test',
-        // ]);
-        // $post->save();
-        // dump(Post::all());
-
         return view('home', [
             'posts' => Post::orderBy('created_at', 'desc')->get()
         ]);
