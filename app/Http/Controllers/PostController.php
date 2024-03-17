@@ -20,6 +20,13 @@ class PostController extends Controller
         return redirect()->route('home');
     }
 
+    public function show(Post $post)
+    {
+        return view('posts.show', [
+            'post' => $post
+        ]);
+    }
+
     public function destroy($id)
     {
         Post::where('id', $id)->firstOrFail()->delete();

@@ -57,3 +57,31 @@
         }
     }
 }
+
+.view-post {
+    .back-group {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        color: white;
+        margin-left: 1rem;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .back-btn {
+        background-color: $primary;
+        border: none;
+        padding: 10px 5px; /* Adjust the padding as needed */
+        cursor: pointer; /* Ensure cursor changes to pointer on hover */
+        display: inline-block; /* Ensure the button takes the width of its content */
+
+        bi {
+            font-size: 1rem;
+        }
+    }
+
+
+}
