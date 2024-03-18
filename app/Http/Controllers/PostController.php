@@ -27,6 +27,20 @@ class PostController extends Controller
         ]);
     }
 
+    public function edit(Post $post)
+    {
+        $editing = true;
+        return view('posts.show', compact('post', 'editing'));
+    }
+
+    public function update(Post $post)
+    {
+        $post->content = request()->get('content', '');
+        $post->save();
+
+        return redirect()->route('post.show', $post->id);
+    }
+
     public function destroy($id)
     {
         Post::where('id', $id)->firstOrFail()->delete();

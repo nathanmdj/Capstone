@@ -6,30 +6,34 @@
             <div class="d-flex justify-content-between ">
                 <p id="postCreatedAt">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</p>
 
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary rounded-circle" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="bi bi-three-dots"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end bg-primary">
-                        <li>
-                            <form method="POST" action="{{ route('post.destroy', $post->id) }}">
-                                @csrf
-                                @method('DELETE')
-                                <button class="menu-item" type="submit"><span class="bi bi-trash"></span>Delete
-                                    post</button>
-                            </form>
-                        </li>
-                        <li>
-                            <form>
-                                <button class="menu-item">Unfollow</button>
-                            </form>
-                        </li>
-
-                    </ul>
-                </div>
+                @include('include.post-dropdown')
             </div>
-            <p>{!! nl2br(e($post->content)) !!}</p>
+            @if ($editing ?? false)
+                <div class=" pb-3">
+                    <form action="{{ route('post.update', $post->id) }}" method="POST" class="p-0"
+                        enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        <div class="text-area d-flex ">
+                            <textarea name="content" id="content" class="form-control bg-primary text-info border-0 p-0"
+                                style="resize: none; overflow-y: hidden;"oninput="autoAdjust(this)">{{ $post->content }}</textarea>
+                        </div>
+
+                        <div class="post-btn d-flex justify-content-end px-3">
+                            <button type="submit" class="btn btn-danger">Update</button>
+                        </div>
+                    </form>
+                </div>
+
+                <script>
+                    function autoAdjust(textarea) {
+                        textarea.style.height = ''; // Reset the height to auto
+                        textarea.style.height = textarea.scrollHeight + 'px'; // Set the height to match the content
+                    }
+                </script>
+            @else
+                <p>{!! nl2br(e($post->content)) !!}</p>
+            @endif
         </div>
 
     </div>

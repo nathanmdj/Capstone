@@ -7,6 +7,7 @@
                 <p>Post</p>
             </div>
         </a>
+
         @include('include.post-card')
     </div>
 @endsection
