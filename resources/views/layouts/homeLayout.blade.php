@@ -21,7 +21,7 @@
             <div class="container-lg">
                 <div class="header row">
                     <div class="col-3 pt-2 logo">
-                        <img src="{{ asset('images/logo2.png') }}" alt="">
+                        <img src="{{ asset('images/devX.png') }}" alt="">
                     </div>
                     <div class="col-6 main-header py-3">
 
