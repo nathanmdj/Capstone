@@ -9,6 +9,6 @@
         </a>
 
         @include('include.post-card')
-
+        @include('include.comments')
     </div>
 @endsection

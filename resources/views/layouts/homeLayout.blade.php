@@ -16,31 +16,31 @@
 </head>
 
 <body>
-    <div class="container-lg home-page">
+    <div class="container-xl home-page">
         <div class="fixed-top">
-            <div class="container-lg">
+            <div class="container-xl">
                 <div class="header row">
-                    <div class="col-3 pt-2 logo">
+                    <div class="col-1 col-xl-2 pt-2 logo">
                         <img src="{{ asset('images/logo2.png') }}" alt="">
                     </div>
-                    <div class="col-6 main-header py-3">
+                    <div class="col-8 main-header py-3">
 
                     </div>
-                    <div class="col-3 pt-2">
+                    <div class="col-3 col-xl-2 pt-2">
                         @include('include.search-bar')
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-3 sidebar-nav position-fixed ">
+            <div class="col-1 col-xl-2 sidebar-nav position-fixed ">
                 <h1>Home</h1>
             </div>
-            <div class="col-3"></div>
-            <div class="col-6 main-content min-vh-100 p-0">
+            <div class="col-1 col-xl-2"></div>
+            <div class="col-8 main-content min-vh-100 p-0">
                 @yield('content')
             </div>
-            <div class="col-3 sidebar-search">
+            <div class="col-3 col-xl-2 sidebar-search">
                 <h1>Home</h1>
             </div>
 

@@ -1,0 +1,15 @@
+.comment-create {
+
+
+    textarea {
+        margin-bottom: 10px;
+        &::placeholder {
+            color: white;
+
+        }
+        &:focus {
+            border-bottom: solid gray 0.5px !important;
+            border-radius: 0;
+        }
+    }
+}

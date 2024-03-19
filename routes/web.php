@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
@@ -23,3 +24,5 @@ Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.dest
 Route::get('/profile', [ProfileController::class, 'profile']);
 
 Route::get('/login', [LoginController::class, 'login']);
+
+Route::post('/post/{post}/comments', [CommentController::class, 'store'])->name('post.comments.store');

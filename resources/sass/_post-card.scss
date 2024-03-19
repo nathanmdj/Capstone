@@ -11,6 +11,13 @@
     }
     // DROPDOWN ITEMS
     .post-content {
+        max-width: 100%;
+        pre {
+            white-space: pre-wrap;
+            // font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+        }
+
         button:hover {
             background-color: $post-hover;
         }
@@ -37,6 +44,16 @@
     }
 
     .post-actions {
+        padding-left: 50px;
+        span {
+
+            font-size: 1.2rem;
+        }
+    }
+    .post-actions-2 {
+        padding-left: 50px;
+        margin-bottom: 1em;
+        border-block: solid 0.5px gray;
         span {
 
             font-size: 1.2rem;

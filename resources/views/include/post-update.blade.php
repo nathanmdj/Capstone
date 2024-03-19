@@ -2,8 +2,8 @@
     <form action="{{ route('post.update', $post->id) }}" method="POST" class="p-0" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <div class="text-area d-flex ">
-            <textarea name="content" id="content" class="form-control bg-primary text-info border-0 p-0"
+        <div class="text-area d-flex mb-3">
+            <textarea name="content" id="content" class="form-control bg-primary text-info border-0 p-0 px-1"
                 style="resize: none; overflow-y: hidden;"oninput="autoAdjust(this)">{{ $post->content }}</textarea>
         </div>
 

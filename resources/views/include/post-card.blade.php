@@ -11,16 +11,26 @@
             @if ($editing ?? false)
                 @include('include.post-update')
             @else
-                <p>{!! nl2br(e($post->content)) !!}</p>
+                <p>
+                    <pre>{!! htmlspecialchars($post->content) !!}</pre>
+                </p>
             @endif
         </div>
 
     </div>
-    <div class="post-actions">
-        <span class="bi bi-chat"></span>
-        <span class="bi bi-hand-thumbs-up"></span>
-    </div>
+
+
+
     @if ($showing ?? false)
+        <div class="post-actions-2 py-2">
+            <span class="bi bi-chat"></span>
+            <span class="bi bi-hand-thumbs-up"></span>
+        </div>
         @include('include.comment-create')
+    @else
+        <div class="post-actions">
+            <span class="bi bi-chat"></span>
+            <span class="bi bi-hand-thumbs-up"></span>
+        </div>
     @endif
 </div>
