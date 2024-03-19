@@ -9,5 +9,6 @@
         </a>
 
         @include('include.post-card')
+
     </div>
 @endsection

@@ -17,17 +17,17 @@
 
 <body>
     <div class="container-lg home-page">
-        <div class="fixed-top ">
+        <div class="fixed-top">
             <div class="container-lg">
                 <div class="header row">
-                    <div class="col-3 pt-3">
-                        <h1>BRAND</h1>
+                    <div class="col-3 pt-2 logo">
+                        <img src="{{ asset('images/logo2.png') }}" alt="">
                     </div>
-                    <div class="col-6 main-header">
+                    <div class="col-6 main-header py-3">
 
                     </div>
-                    <div class="col-3 pt-3">
-                        <input type="text" class="form-control bg-secondary border-0 text-info search-bar">
+                    <div class="col-3 pt-2">
+                        @include('include.search-bar')
                     </div>
                 </div>
             </div>

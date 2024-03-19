@@ -1,0 +1,15 @@
+.search-bar {
+    background-color: rgb(39, 51, 64);
+    color: white;
+    caret-color: white;
+    border-color: $primary;
+
+    &::placeholder {
+        color: white;
+    }
+    &:focus {
+        background-color: rgb(39, 51, 64);
+        color: white;
+        border-color: $success;
+    }
+}

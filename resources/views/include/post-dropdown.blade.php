@@ -13,9 +13,9 @@
         </li>
         <li>
             <form method="GET" action="{{ route('post.edit', $post->id) }}">
-                <button class="menu-item"><span class="bi bi-pencil"></span> Edit</button>
                 @csrf
 
+                <button class="menu-item"><span class="bi bi-pencil"></span> Edit</button>
             </form>
         </li>
 

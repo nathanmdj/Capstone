@@ -1,18 +1,41 @@
 .home-page {
     background-color: $primary;
+    // .main-header {
+    //     border-bottom: solid gray 0.5px;
+    //     background-color: $primary;
+    //     backdrop-filter: blur(10px);
+    //     opacity: 0.7;
+    //     color: white;
+    // }
+    .logo{
+
+        img {
+            width: 80px;
+        }
+    }
+    .home {
+        margin-top: 60px;
+    }
     .main-content {
 
         border: solid gray 0.5px;
 
         .status-container {
             border-bottom: solid gray 0.5px;
+
+            textarea {
+                margin-bottom: 10px;
+                &::placeholder {
+                    color: white;
+                    font-size: 1.25rem;
+                }
+                &:focus {
+                    border-bottom: solid gray 0.5px !important;
+                    border-radius: 0;
+                }
+            }
         }
-        .post-container {
-            border-bottom: solid gray 0.5px;
-            }
-            p {
-                margin: 0;
-            }
+
         }
 
         span {
@@ -27,35 +50,7 @@
         }
     }
 
-    .post-container:hover {
-        background-color: $post-hover !important;
-        cursor: pointer;
-    }
 
-    .post-content {
-        button:hover {
-            background-color: $post-hover;
-        }
-
-        .dropdown-menu {
-            li:hover {
-                background-color: $post-hover !important
-            }
-
-            .bi {
-                font-size: 1rem;
-                margin-right: 5px;
-            }
-
-            .menu-item {
-                background: none;
-                color: white;
-                border: none;
-                margin-left: 10px;
-                padding-block: 5px;
-            }
-        }
-    }
 }
 
 .view-post {
@@ -85,3 +80,4 @@
 
 
 }
+
