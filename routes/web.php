@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResourcesController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,3 +28,5 @@ Route::get('/profile', [ProfileController::class, 'profile']);
 Route::get('/login', [LoginController::class, 'login']);
 
 Route::get('/signup', [SignupController::class, 'signup']);
+
+Route::get('/resources', [ResourcesController::class, 'resources']);
