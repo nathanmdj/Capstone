@@ -6,12 +6,11 @@
 
         <!---Login Container--->
 
-        <div class="row border rounded-5 p-3 shadow box-area" style="background: #DEDEDE">
+        <div class="row border rounded-5 p-3 shadow box-area bg-info">
 
             <!---Left Box--->
 
-            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-                style="background: #444444">
+            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box bg-black">
                 <div class="featured-image mb-3">
                     <img src="images/devx.png" class="img-fluid" style="width: 250px;" alt="Left Icon">
                 </div>
@@ -51,7 +50,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <button class="btn btn-lg btn-primary w-100 fs-6" style="background-color: #DA0037">Login</button>
+                        <button class="btn btn-lg btn-danger w-100 fs-6">Login</button>
                     </div>
                     <div class="input-group mb-3">
                         <button class="btn btn-lg btn-light w-100 fs-6"><img src="images/google.png" style="width: 20px"

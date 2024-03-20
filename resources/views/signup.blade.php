@@ -10,8 +10,7 @@
 
             <!---Left Box--->
 
-            <div
-                class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column  bg-secondary left-box">
+            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column  bg-black left-box">
                 <div class="featured-image mb-3">
                     <img src="images/devx.png" class="img-fluid" style="width: 250px;" alt="Left Icon">
                 </div>

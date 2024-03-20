@@ -13,7 +13,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0 mx-md-3">
+                        <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0 mx-md-3 rounded-5">
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-white form-control form-control-lg">
