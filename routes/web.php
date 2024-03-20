@@ -28,3 +28,5 @@ Route::get('/login', [LoginController::class, 'login']);
 Route::post('/post/{post}/comments', [CommentController::class, 'store'])->name('post.comments.store');
 
 Route::get('/post/{post}/comments', [CommentController::class, 'show'])->name('post.comments.show');
+
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');

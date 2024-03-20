@@ -20,7 +20,15 @@ class CommentController extends Controller
 
     public function show(Post $post)
     {
+        return redirect()->route('post.show', $post->id);
+    }
 
+    public function destroy(Comment $comment)
+    {
+        $post = new Post();
+        $post->id = $comment->post_id;
+        $id = $comment->id;
+        Comment::where('id', $id)->firstOrFail()->delete();
 
         return redirect()->route('post.show', $post->id);
     }
