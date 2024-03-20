@@ -3,7 +3,7 @@
         @csrf
         <div class="text-area d-flex ">
             <span class="bi bi-person-circle"></span>
-            <textarea name="posts" id="posts" class="form-control bg-primary text-info border-0 "
+            <textarea name="content"class="form-control bg-primary text-info border-0 "
                 style="resize: none; overflow-y: hidden;"oninput="autoAdjust(this)" placeholder="Need help? Ask!"></textarea>
         </div>
 

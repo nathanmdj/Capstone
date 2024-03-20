@@ -9,13 +9,11 @@ class PostController extends Controller
 {
     public function store()
     {
-        request()->validate([
-            'posts' => 'required'
+        $validated = request()->validate([
+            'content' => 'required'
         ]);
 
-        $post = Post::create([
-            'content' => request()->get('posts', ''),
-        ]);
+        Post::create($validated);
 
         return redirect()->route('home');
     }
@@ -34,8 +32,11 @@ class PostController extends Controller
 
     public function update(Post $post)
     {
-        $post->content = request()->get('content', '');
-        $post->save();
+        $validated = request()->validate([
+            'content' => 'required'
+        ]);
+
+        $post->update($validated);
 
         return redirect()->route('post.show', $post->id);
     }

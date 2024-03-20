@@ -13,6 +13,12 @@ class Post extends Model
         'content'
     ];
 
+    // protected $guarded = [
+    //     'id',
+    //     'created_at',
+    //     'updated_at'
+    // ];
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
