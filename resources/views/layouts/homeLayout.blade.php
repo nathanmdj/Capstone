@@ -22,7 +22,7 @@
             <div class="container-xl">
                 <div class="header row">
                     <div class="col-1 col-xl-2 pt-2 logo">
-                        <img src="{{ asset('images/logo2.png') }}" alt="">
+                        <img src="{{ asset('images/devX.png') }}" alt="">
                     </div>
                     <div class="col-8 main-header py-3">
 
