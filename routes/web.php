@@ -6,6 +6,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResourcesController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,3 +34,5 @@ Route::get('/post/{post}/comments', [CommentController::class, 'show'])->name('p
 
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
 Route::get('/signup', [SignupController::class, 'signup']);
+
+Route::get('/resources', [ResourcesController::class, 'resources']);
