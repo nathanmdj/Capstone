@@ -21,10 +21,10 @@
         <div class="fixed-top">
             <div class="container-xl">
                 <div class="header row">
-                    <div class="col-1 col-xl-2 pt-2 logo">
+                    <div class="col-2 pt-2 logo">
                         <img src="{{ asset('images/devX.png') }}" alt="">
                     </div>
-                    <div class="col-8 main-header py-3">
+                    <div class="col-7 main-header py-3">
 
                     </div>
                     <div class="col-3 col-xl-2 pt-2">
@@ -34,11 +34,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-1 col-xl-2 sidebar-nav position-fixed ">
+            <div class="col-2  sidebar-nav position-fixed ">
                 <h1>Home</h1>
             </div>
-            <div class="col-1 col-xl-2"></div>
-            <div class="col-8 main-content min-vh-100 p-0">
+            <div class="col-2 "></div>
+            <div class="col-7 main-content min-vh-100 p-0">
                 @yield('content')
             </div>
             <div class="col-3 col-xl-2 sidebar-search">

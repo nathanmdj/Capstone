@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -33,6 +34,16 @@ Route::post('/post/{post}/comments', [CommentController::class, 'store'])->name(
 Route::get('/post/{post}/comments', [CommentController::class, 'show'])->name('post.comments.show');
 
 Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
-Route::get('/signup', [SignupController::class, 'signup']);
+
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+
+Route::post('/register', [AuthController::class, 'store']);
+
+
+
+
+
+
+
 
 Route::get('/resources', [ResourcesController::class, 'resources']);
