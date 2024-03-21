@@ -12,6 +12,7 @@ class Resource extends Model
     protected $fillable = [
         'category',
         'url',
-        'img_url'
+        'img_url',
+        'name'
     ];
 }

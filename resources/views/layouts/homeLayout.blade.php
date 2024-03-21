@@ -22,7 +22,7 @@
             <div class="container-xl">
                 <div class="header row">
                     <div class="col-2 pt-2 logo">
-                        <img src="{{ asset('images/devX.png') }}" alt="">
+                        <a href="{{ route('home') }}"> <img src="{{ asset('images/devX.png') }}" alt=""></a>
 
                     </div>
                     <div class="col-7 main-header">
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-2  sidebar-nav position-fixed min-vh-100 ">
+            <div class="col-1 sidebar-nav position-fixed">
                 <div class="d-flex flex-column justify-content-between vh-100">
 
                     <h1>Home</h1>
