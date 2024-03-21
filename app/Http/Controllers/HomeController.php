@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $post = Post::orderBy('created_at', 'desc');
+        $post = Post::with('user')->orderBy('created_at', 'desc');
 
         if (request()->has('search')) {
             $post = $post->where('content', 'like', '%' . request()->get('search', '') . '%');

@@ -1,0 +1,23 @@
+.user-btn {
+    bottom: 0;
+
+    button {
+        background-color: none;
+    }
+
+    span {
+        margin-right: 10px;
+    }
+    .username {
+        p {
+            text-align: start;
+            color: white;
+            margin-bottom: 0;
+            font-weight: 100;
+            &:first-child {
+                font-weight: bold;
+                font-size: 1rem;
+            }
+        }
+    }
+}

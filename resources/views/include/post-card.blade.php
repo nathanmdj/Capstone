@@ -4,7 +4,15 @@
 
         <div class="post-content card-body p-1">
             <div class="d-flex justify-content-between ">
-                <p id="postCreatedAt">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</p>
+                <div class="d-flex">
+                    @if ($post->user)
+                        <p class="me-3 fw-bold">{{ '@' . $post->user->username }}</p>
+                    @else
+                        <p class="me-3 fw-bold">{{ unknown }}</p>
+                    @endif
+                    <p id="postCreatedAt">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</p>
+
+                </div>
 
                 @include('include.post-dropdown')
             </div>

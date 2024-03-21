@@ -5,7 +5,15 @@
 
             <div class="post-content card-body p-1">
                 <div class="d-flex justify-content-between ">
-                    <p id="commentDate">{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</p>
+                    <div class="d-flex">
+                        @if ($comment->user)
+                            <p class="me-3 fw-bold">{{ '@' . $comment->user->username }}</p>
+                        @else
+                            <p class="me-3 fw-bold">unknown</p>
+                        @endif
+
+                        <p id="commentDate">{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</p>
+                    </div>
 
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary rounded-circle" data-bs-toggle="dropdown"

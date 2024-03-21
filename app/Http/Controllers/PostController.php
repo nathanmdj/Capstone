@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -13,7 +14,10 @@ class PostController extends Controller
             'content' => 'required'
         ]);
 
-        Post::create($validated);
+        Post::create([
+            'content' => $validated['content'],
+            'user_id' => Auth::user()->id
+        ]);
 
         return redirect()->route('home');
     }

@@ -21,10 +21,6 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:8'
         ]);
 
-
-        // return redirect()->back()->withInput();
-
-
         User::create([
             'username' => $validated['username'],
             'email' => $validated['email'],
@@ -32,5 +28,37 @@ class AuthController extends Controller
         ]);
 
         return redirect()->route('home');
+    }
+
+    public function login()
+    {
+        return view('auth.login');
+    }
+
+    public function authenticate()
+    {
+        $validated = request()->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ]);
+
+        if (auth()->attempt($validated)) {
+            request()->session()->regenerate();
+            return redirect()->route('home');
+        }
+
+        return redirect()->route('login')->withErrors([
+            'email' => 'Email and password do not match!'
+        ])->withInput();
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 }

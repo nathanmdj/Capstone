@@ -23,8 +23,9 @@
                 <div class="header row">
                     <div class="col-2 pt-2 logo">
                         <img src="{{ asset('images/devX.png') }}" alt="">
+
                     </div>
-                    <div class="col-7 main-header py-3">
+                    <div class="col-7 main-header">
 
                     </div>
                     <div class="col-3 col-xl-2 pt-2">
@@ -34,8 +35,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-2  sidebar-nav position-fixed ">
-                <h1>Home</h1>
+            <div class="col-2  sidebar-nav position-fixed min-vh-100 ">
+                <div class="d-flex flex-column justify-content-between vh-100">
+
+                    <h1>Home</h1>
+                    @include('include.user-button')
+                </div>
             </div>
             <div class="col-2 "></div>
             <div class="col-7 main-content min-vh-100 p-0">
