@@ -10,7 +10,12 @@
                     @else
                         <p class="me-3 fw-bold">{{ unknown }}</p>
                     @endif
-                    <p id="postCreatedAt">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</p>
+
+                    @if ($showing ?? false)
+                    @else
+                        <p id="postCreatedAt">{{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</p>
+                    @endif
+
 
                 </div>
 
@@ -30,6 +35,14 @@
 
 
     @if ($showing ?? false)
+        <div class="date-time">
+            <p>
+                {{ $post->created_at->timezone('Asia/Manila')->format('h:i A') }}
+                <span class="bi bi-dot m-0  fs-6"></span>
+                {{ $post->created_at->timezone('Asia/Manila')->format('M d, Y') }}
+
+            </p>
+        </div>
         <div class="post-actions-2 py-2">
             <span class="bi bi-chat"></span>
             <span class="bi bi-hand-thumbs-up"></span>
