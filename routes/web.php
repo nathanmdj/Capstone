@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -47,7 +49,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 
+Route::get('/profile', [ProfileController::class, 'profile'])->name('profile')->middleware('auth');
 
+Route::get('/messages', [MessageController::class, 'messages'])->name('messages')->middleware('auth');
 
+Route::get('/bookmarks', [BookmarkController::class, 'bookmarks'])->name('bookmarks')->middleware('auth');
 
-Route::get('/resources', [ResourcesController::class, 'resources'])->middleware('auth');
+Route::get('/resources', [ResourcesController::class, 'resources'])->name('resources')->middleware('auth');

@@ -11,13 +11,12 @@ class PostController extends Controller
     public function store()
     {
         $validated = request()->validate([
-            'content' => 'required'
+            'content' => 'required',
         ]);
 
-        Post::create([
-            'content' => $validated['content'],
-            'user_id' => Auth::user()->id
-        ]);
+        $validated['user_id'] = auth()->id();
+
+        Post::create($validated);
 
         return redirect()->route('home');
     }

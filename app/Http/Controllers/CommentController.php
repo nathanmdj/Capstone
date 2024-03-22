@@ -13,7 +13,7 @@ class CommentController extends Controller
     {
         $comment = new Comment();
         $comment->post_id = $post->id;
-        $comment->user_id = Auth::user()->id;
+        $comment->user_id = auth()->id();
         $comment->content = request()->get('content');
         $comment->save();
 

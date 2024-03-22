@@ -66,7 +66,7 @@
                                 class="me-2"><small>Sign In with Google</small></button>
                     </div>
                     <div class="row">
-                        <small>Don't have account? <a href="#">Sign Up</a></small>
+                        <small>Don't have account? <a href="{{ route('register') }}">Sign Up</a></small>
                     </div>
                 </div>
             @endsection

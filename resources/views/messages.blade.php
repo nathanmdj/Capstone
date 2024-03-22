@@ -1,4 +1,4 @@
 @extends('layouts.homeLayout')
 @section('content')
-    <h1>Profile</h1>
+    <h1>Messages</h1>
 @endsection

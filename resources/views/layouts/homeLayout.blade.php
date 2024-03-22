@@ -18,36 +18,36 @@
 
 <body>
     <div class="container-xl home-page">
-        <div class="fixed-top">
+        {{-- <div class="fixed-top">
             <div class="container-xl">
                 <div class="header row">
                     <div class="col-2 pt-2 logo">
                         <a href="{{ route('home') }}"> <img src="{{ asset('images/devX.png') }}" alt=""></a>
 
                     </div>
-                    <div class="col-7 main-header">
+                    @if ($showing ?? false)
+                        <div class="col-7 bg-success z-0 "></div>
+                    @else
+                        <div class="col-7 main-header">
 
-                    </div>
+                        </div>
+                    @endif
                     <div class="col-3 col-xl-2 pt-2">
                         @include('include.search-bar')
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row">
-            <div class="col-1 sidebar-nav position-fixed">
-                <div class="d-flex flex-column justify-content-between vh-100">
-
-                    <h1>Home</h1>
-                    @include('include.user-button')
-                </div>
-            </div>
+            @include('include.left-sidebar')
             <div class="col-2 "></div>
             <div class="col-7 main-content min-vh-100 p-0">
                 @yield('content')
             </div>
             <div class="col-3 col-xl-2 sidebar-search">
-                <h1>Home</h1>
+                <div class="pt-2">
+                    @include('include.search-bar')
+                </div>
             </div>
 
         </div>
