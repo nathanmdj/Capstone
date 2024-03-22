@@ -8,6 +8,7 @@ use App\Http\Controllers\SignupController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResourcesController;
+use App\Http\Controllers\FollowUpController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,8 @@ Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.dest
 Route::get('/profile', [ProfileController::class, 'profile']);
 
 Route::get('/login', [LoginController::class, 'login']);
+
+Route::get('/followUp', [FollowUpController::class, 'followUp']);
 
 Route::post('/post/{post}/comments', [CommentController::class, 'store'])->name('post.comments.store');
 
