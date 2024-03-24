@@ -18,6 +18,12 @@
         .status-container {
             border-bottom: solid gray 0.5px;
 
+            .text-area span {
+                font-size: 2rem;
+                margin-right: 20px;
+                color: white;
+            }
+
             textarea {
                 margin-bottom: 10px;
                 &::placeholder {
@@ -29,15 +35,24 @@
                     border-radius: 0;
                 }
             }
-        }
 
+            .post-btn button {
+                margin-left: 30px;
+                span {
+                    color: white;
+                    font-size: 1.2rem;
+                }
+            }
         }
 
         span {
             font-size: 2rem;
             margin-right: 20px;
             color: white;
+        }
     }
+
+
 
     .header {
         .main-header {

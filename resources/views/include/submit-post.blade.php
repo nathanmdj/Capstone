@@ -7,7 +7,10 @@
                 style="resize: none; overflow-y: hidden;"oninput="autoAdjust(this)" placeholder="Need help? Ask!"></textarea>
         </div>
 
-        <div class="post-btn d-flex justify-content-end px-3">
+        <div class="post-btn d-flex justify-content-between px-3">
+            <input type="file" id="image" name="image" accept="image/*" style="display: none;">
+            <button type="button" onclick="$('#image').click();" class="btn"><span
+                    class="bi bi-image"></span></button>
             <button type="submit" class="btn btn-danger">Post</button>
         </div>
     </form>

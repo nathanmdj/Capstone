@@ -1,11 +1,11 @@
-<div class="col-1 sidebar-nav position-fixed">
+<div class="col-2 sidebar-nav position-fixed">
     <div class="d-flex flex-column vh-100">
         <div class="pt-2 logo">
             <a href="{{ route('home') }}"> <img src="{{ asset('images/devX.png') }}" alt=""></a>
         </div>
         <div class="d-flex flex-column justify-content-between vh-100 ">
             <div class="nav navbar ">
-                <ul class="nav">
+                <ul class="nav d-flex flex-column">
                     <li class="nav-item">
                         <a href="{{ route('home') }}"
                             class="nav-link {{ request()->is('/') ? 'active' : '' }} ">Home</a>

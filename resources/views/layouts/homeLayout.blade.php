@@ -41,7 +41,7 @@
         <div class="row">
             @include('include.left-sidebar')
             <div class="col-2 "></div>
-            <div class="col-7 main-content min-vh-100 p-0">
+            <div class="col-7 col-xl-8 main-content min-vh-100 p-0">
                 @yield('content')
             </div>
             <div class="col-3 col-xl-2 sidebar-search">

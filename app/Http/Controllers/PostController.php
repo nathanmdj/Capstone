@@ -10,6 +10,7 @@ class PostController extends Controller
 {
     public function store()
     {
+
         $validated = request()->validate([
             'content' => 'required',
         ]);
@@ -29,12 +30,20 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
+        if ($post->user_id !== auth()->id()) {
+            abort(401);
+        }
+
         $editing = true;
         return view('posts.show', compact('post', 'editing'));
     }
 
     public function update(Post $post)
     {
+        if ($post->user_id !== auth()->id()) {
+            abort(401);
+        }
+
         $validated = request()->validate([
             'content' => 'required'
         ]);
@@ -46,6 +55,11 @@ class PostController extends Controller
 
     public function destroy($id)
     {
+        $post = new Post();
+        if ($post->user_id !== auth()->id()) {
+            abort(401);
+        }
+
         Post::where('id', $id)->firstOrFail()->delete();
 
         return redirect()->route('home');

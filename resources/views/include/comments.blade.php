@@ -15,6 +15,7 @@
                         <p id="commentDate">{{ \Carbon\Carbon::parse($comment->created_at)->diffForHumans() }}</p>
                     </div>
 
+
                     <div class="btn-group">
                         <button type="button" class="btn btn-primary rounded-circle" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -25,14 +26,14 @@
                                 <form method="POST" action="{{ route('comments.destroy', $comment->id) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="menu-item" type="submit"><span class="bi bi-trash"></span> Delete
+                                    <button class="menu-item" type="submit"><span class="bi bi-trash"></span>
+                                        Delete
                                         comment</button>
                                 </form>
                             </li>
-
-
                         </ul>
                     </div>
+
 
 
                 </div>
@@ -47,7 +48,6 @@
 
 
         <div class="post-actions">
-            <span class="bi bi-chat"></span>
             <span class="bi bi-hand-thumbs-up"></span>
         </div>
 

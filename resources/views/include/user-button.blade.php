@@ -1,5 +1,5 @@
 @auth
-    <div class="user-btn mb-4 btn-group dropup">
+    <div class="user-btn mb-4 btn-group dropup w-100 ">
         <button type="button" class="btn btn-primary rounded-5" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="user-btn d-flex align-items-center w-100 ">
                 <span class="bi bi-person-circle"></span>
