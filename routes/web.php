@@ -4,12 +4,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MessageController;
-use App\Http\Controllers\SignupController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ResourcesController;
+use App\Http\Controllers\ResourceController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +39,4 @@ Route::get('/messages', [MessageController::class, 'messages'])->name('messages'
 
 Route::get('/bookmarks', [BookmarkController::class, 'bookmarks'])->name('bookmarks')->middleware('auth');
 
-Route::get('/resources', [ResourcesController::class, 'resources'])->name('resources')->middleware('auth');
+Route::get('/resources', [ResourceController::class, 'resources'])->name('resources')->middleware('auth');
