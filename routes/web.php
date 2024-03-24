@@ -10,6 +10,7 @@ use App\Http\Controllers\SignupController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ResourcesController;
+use App\Http\Controllers\FollowUpController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -44,6 +45,8 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/followUp', [FollowUpController::class, 'followUp'])->name('followUp');
 
 
 
