@@ -20,10 +20,18 @@
                                     <span class="fs-4 d-sm-inline ms-3">All</span>
                                 </a>
                             </li>
-                            @foreach ($resources as $resource)
+                            @php
+                                $uniqueCategories = [];
+                                foreach ($resources as $resource) {
+                                    if (!in_array($resource->category, $uniqueCategories)) {
+                                        $uniqueCategories[] = $resource->category;
+                                    }
+                                }
+                            @endphp
+                            @foreach ($uniqueCategories as $category)
                                 <li class="nav-item">
                                     <a href="#" class="nav-link text-white form-control form-control-lg">
-                                        <span class="fs-4 d-sm-inline ms-3">{{ $resource->category }}</span>
+                                        <span class="fs-4 d-sm-inline ms-3">{{ $category }}</span>
                                     </a>
                                 </li>
                             @endforeach
@@ -47,11 +55,7 @@
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $resource->name }}</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a
-                                                natural
-                                                lead-in
-                                                to
-                                                additional content. This content is a little bit longer.</p>
+                                            <p class="card-text">{{ $resource->description }}</p>
                                         </div>
                                     </div>
                                 </div>
