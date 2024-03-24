@@ -39,9 +39,12 @@
                             @enderror
                         </div>
 
-                        <div class="form-group mb-1">
-                            <input name="password" type="password" class="form-control form-control-lg bg-light fs-6"
-                                placeholder="Password">
+                        <div class="form-group mb-1 group-password">
+                            <input name="password" id="password" type="password"
+                                class="form-control form-control-lg bg-light fs-6" placeholder="Password"
+                                value="{{ request('password', '') }}">
+                            <button type="button" id="togglePassword" class="border-0 btn"><span
+                                    class="bi bi-eye-slash-fill" id="toggleIcon"></span></button>
                             @error('password')
                                 <span class="d-block fs-6 text-danger mt-2">{{ $message }}</span>
                             @enderror
@@ -69,4 +72,28 @@
                         <small>Don't have account? <a href="{{ route('register') }}">Sign Up</a></small>
                     </div>
                 </div>
-            @endsection
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordField = document.getElementById('password');
+            const toggleButton = document.getElementById('togglePassword');
+            const toggleIcon = document.getElementById('toggleIcon');
+
+            toggleButton.addEventListener('click', function() {
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    toggleIcon.classList.remove('bi-eye-slash-fill');
+                    toggleIcon.classList.add('bi-eye-fill');
+
+                } else {
+                    passwordField.type = 'password';
+                    toggleIcon.classList.remove('bi-eye-fill');
+                    toggleIcon.classList.add('bi-eye-slash-fill');
+                }
+            });
+        });
+    </script>
+@endsection

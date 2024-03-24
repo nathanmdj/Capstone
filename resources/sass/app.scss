@@ -18,3 +18,19 @@
 @import 'search-bar';
 @import 'comments';
 @import 'left-sidebar';
+
+
+.group-password {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    padding: 0;
+    margin-right: 10px;
+    span {
+        font-size: 1.5rem;
+    }
+}

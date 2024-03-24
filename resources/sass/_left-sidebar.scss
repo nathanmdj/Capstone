@@ -44,8 +44,12 @@
         margin-top: 10vh;
         a {
             color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.8rem;
+            font-weight: 400;
+
+            @media (min-width: map-get($grid-breakpoints, xl)) {
+                font-size: 1.4rem;
+            }
         }
         .nav-link {
             &:hover {
