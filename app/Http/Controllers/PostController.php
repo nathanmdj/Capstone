@@ -55,7 +55,8 @@ class PostController extends Controller
 
     public function destroy($id)
     {
-        $post = new Post();
+        $post = Post::where('id', $id)->firstOrFail();
+
         if ($post->user_id !== auth()->id()) {
             abort(401);
         }

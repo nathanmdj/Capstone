@@ -14,39 +14,25 @@ use App\Http\Controllers\ResourcesController;
 use Illuminate\Support\Facades\Route;
 
 
-
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
-Route::post('/post', [PostController::class, 'store'])->name('post.create')->middleware('auth');
+Route::group(['prefix' => 'post', 'as' => 'post.', 'middleware' => 'auth'], function () {
+    Route::post('', [PostController::class, 'store'])->name('create');
 
-Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show')->middleware('auth');
+    Route::get('/{post}', [PostController::class, 'show'])->name('show');
 
-Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
+    Route::get('/{post}/edit', [PostController::class, 'edit'])->name('edit');
 
-Route::put('/post/{post}', [PostController::class, 'update'])->name('post.update');
+    Route::put('/{post}', [PostController::class, 'update'])->name('update');
 
-Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
+    Route::delete('/{id}', [PostController::class, 'destroy'])->name('destroy');
 
-Route::get('/login', [LoginController::class, 'login']);
+    Route::post('/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
 
-Route::post('/post/{post}/comments', [CommentController::class, 'store'])->name('post.comments.store');
+    Route::get('/{post}/comments', [CommentController::class, 'show'])->name('post.comments.show');
 
-Route::get('/post/{post}/comments', [CommentController::class, 'show'])->name('post.comments.show');
-
-Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
-
-Route::get('/register', [AuthController::class, 'register'])->name('register');
-
-Route::post('/register', [AuthController::class, 'store']);
-
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-
-Route::post('/login', [AuthController::class, 'authenticate']);
-
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-
-
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+});
 
 
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile')->middleware('auth');

@@ -23,7 +23,7 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end bg-primary">
                             <li>
-                                <form method="POST" action="{{ route('comments.destroy', $comment->id) }}">
+                                <form method="POST" action="{{ route('post.comments.destroy', $comment->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="menu-item" type="submit"><span class="bi bi-trash"></span>
