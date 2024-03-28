@@ -9,40 +9,12 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(User $profile)
     {
         $posts = Post::with('user')->where('user_id', $profile->id)->orderBy('created_at', 'desc')->get();
         $user = $profile;
-        $followerCount = $user->followers()->count();
-        $followingCount = $user->followings()->count();
-        return view('profile.show', compact('user', 'posts', 'followerCount', 'followingCount'));
+        return view('profile.show', compact('user', 'posts'));
     }
 
     /**
@@ -65,9 +37,9 @@ class ProfileController extends Controller
 
         $validated = request()->validate([
             'name' => 'required',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'bio' => '',
-            'cover' => '',
+            'cover' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'location' => '',
             'portfolio_url' => '',
         ]);
@@ -78,19 +50,15 @@ class ProfileController extends Controller
 
             Storage::disk('public')->delete($user->info->photo ?? '');
         }
+        if (request()->has('cover')) {
+            $imagePath = request()->file('cover')->store('profile', 'public');
+            $validated['cover'] = $imagePath;
+
+            Storage::disk('public')->delete($user->info->cover ?? '');
+        }
         $user->info->update($validated);
 
         $posts = Post::with('user')->where('user_id', $profile->id)->get();
-        $followerCount = $user->followers()->count();
-        $followingCount = $user->followings()->count();
-        return view('profile.show', compact('user', 'posts', 'followerCount', 'followingCount'));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return view('profile.show', compact('user', 'posts'));
     }
 }

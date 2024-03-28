@@ -3,55 +3,12 @@
     <div class="profile">
 
         @if ($editing ?? false)
-            <div class="cover-photo">
-                <div class="upload-cover">
-                    <button class="btn">
-                        <img src="{{ asset('images/icons8-add-camera-48.png') }}" alt="">
-                    </button>
-                </div>
-                @if (auth()->user()->info->getImageUrl() ?? false)
-                    <div class="profile-img">
-                        <img id="upload" src="{{ $user->info->getImageUrl() }}" alt="">
-                    </div>
-                @else
-                    <span class="bi bi-person-circle"></span>
-                @endif
-                <div class="upload-photo" id="upload-photo">
-                    <img src="{{ asset('images/icons8-add-camera-48.png') }}" alt="">
-                </div>
-            </div>
-            <div class="edit-profile ">
-                <form method="POST" action="{{ route('profile.update', auth()->id()) }}" enctype="multipart/form-data"
-                    novalidate>
-                    @csrf
-                    @method('PUT')
-                    <input type="file" id="photo" name="photo" accept="image/*" style="display: none;">
-                    <div class="btn-container d-flex justify-content-end mt-3 me-3">
-                        <button class="btn rounded-5 text-white">Save</button>
-                    </div>
-                    <label>
-                        <input name="name" class="input" type="text" placeholder="" required=""
-                            value="{{ auth()->user()->info->name }}">
-                        <span>Name</span>
-                    </label>
-                    <label>
-                        <textarea name="bio" class="input" type="text" placeholder="" required="" rows="3">{{ auth()->user()->info->bio }}</textarea>
-                        <span>Bio</span>
-                    </label>
-                    <label>
-                        <input name="location" class="input" type="text" placeholder="" required=""
-                            value=" {{ auth()->user()->info->location }}">
-                        <span>Location</span>
-                    </label>
-                    <label>
-                        <input name="portfolio_url" class="input" type="text" placeholder="" required=""
-                            value="{{ auth()->user()->info->portfolio_url }}">
-                        <span>Portfolio Url</span>
-                    </label>
-                </form>
-            </div>
+            @include('profile.edit')
         @else
             <div class="cover-photo">
+                <div class="cover-img">
+                    <img id="upload2" src="{{ $user->info->getCoverUrl() }}" alt="">
+                </div>
                 @if ($user->info->getImageUrl() ?? false)
                     <div class="profile-img">
                         <img id="upload" src="{{ $user->info->getImageUrl() }}" alt="">
@@ -98,11 +55,11 @@
 
                 <div class="follows d-flex gap-3">
                     <p>
-                        <span class="counter">{{ $followingCount }}</span>
+                        <span class="counter">{{ $user->followers()->count() }}</span>
                         Following
                     </p>
                     <p>
-                        <span class="counter">{{ $followerCount }}</span>
+                        <span class="counter">{{ $user->followings()->count() }}</span>
                         Followers
                     </p>
                 </div>
@@ -115,10 +72,13 @@
         @endif
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Your code here
-            document.getElementById('upload-photo').addEventListener('click', function() {
+        $(document).ready(function() {
+            $('#upload-photo').click(function() {
                 $('#photo').click();
+            });
+
+            $('#upload-cover').click(function() {
+                $('#cover').click();
             });
         });
 
@@ -135,6 +95,21 @@
 
             // Update the src attribute of the image element with the URL
             uploadedImage.src = imageUrl;
+        });
+
+        const imageInput2 = document.getElementById('cover');
+        const uploadedImage2 = document.getElementById('upload2');
+
+        // Listen for changes in the file input
+        imageInput2.addEventListener('change', function() {
+            // Get the selected file
+            const file = this.files[0];
+
+            // Create a URL for the selected file
+            const imageUrl = URL.createObjectURL(file);
+
+            // Update the src attribute of the image element with the URL
+            uploadedImage2.src = imageUrl;
         });
     </script>
 

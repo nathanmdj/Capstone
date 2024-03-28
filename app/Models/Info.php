@@ -30,4 +30,11 @@ class Info extends Model
             return url('storage/' . $this->photo);
         }
     }
+
+    public function getCoverUrl()
+    {
+        if ($this->cover) {
+            return url('storage/' . $this->cover);
+        }
+    }
 }
