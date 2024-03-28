@@ -13,10 +13,10 @@
     }
     .main-content {
 
-        border: solid gray 0.5px;
+        border: solid rgba(128, 128, 128,0.4) 0.5px;
 
         .status-container {
-            border-bottom: solid gray 0.5px;
+            border-block: solid rgba(128, 128, 128,0.4) 0.5px;
 
             .profile-img {
                 width: 50px;
@@ -68,7 +68,7 @@
 
     .header {
         .main-header {
-            border-inline: solid gray 0.5px;
+             border: solid rgba(128, 128, 128,0.4) 0.5px;
         }
     }
 

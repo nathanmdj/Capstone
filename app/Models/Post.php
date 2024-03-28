@@ -24,4 +24,14 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'likes')->withTimestamps();
+    }
+
+    public function isLike()
+    {
+        return $this->likes()->where('user_id', auth()->id())->exists();
+    }
 }

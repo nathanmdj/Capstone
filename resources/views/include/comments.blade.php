@@ -1,8 +1,13 @@
 @foreach ($post->comments->reverse() as $comment)
     <div class="post-container card text-info bg-primary rounded-0 p-3">
         <div class="post-header d-flex align-items-start  ">
-            <span class="bi bi-person-circle"></span>
-
+            @if ($comment->user->info->getImageUrl() ?? false)
+                <div class="profile-img">
+                    <img src="{{ $comment->user->info->getImageUrl() }}" alt="">
+                </div>
+            @else
+                <span class="bi bi-person-circle"></span>
+            @endif
             <div class="post-content card-body p-1">
                 <div class="d-flex justify-content-between ">
                     <div class="d-flex">

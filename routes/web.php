@@ -5,6 +5,7 @@ use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -39,6 +40,10 @@ Route::resource('profile', ProfileController::class)->only(['show', 'edit', 'upd
 Route::post('users/{user}/follow', [FollowerController::class, 'follow'])->name('user.follow')->middleware('auth');
 
 Route::post('users/{user}/unfollow', [FollowerController::class, 'unfollow'])->name('user.unfollow')->middleware('auth');
+
+Route::post('like/{post}', [LikeController::class, 'like'])->name('post.like')->middleware('auth');
+
+Route::delete('like/{post}', [LikeController::class, 'unlike'])->name('post.unlike')->middleware('auth');
 
 Route::get('/messages', [MessageController::class, 'messages'])->name('messages')->middleware('auth');
 

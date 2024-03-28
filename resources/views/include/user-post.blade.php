@@ -58,7 +58,11 @@
         </div>
         <div class="post-actions-2 py-2 d-flex justify-content-between pe-5">
             <span class="bi bi-chat"></span>
-            <span class="bi bi-hand-thumbs-up"></span>
+            <button class="like-btn btn px-2 py-0" data-post-id="{{ $post->id }}"
+                data-liked="{{ $post->isLike() ? 'true' : 'false' }}" onclick="handleLike(this)">
+                <span
+                    class="bi  {{ $post->isLike() ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up' }}">{{ $post->likes()->count() }}</span>
+            </button>
             <span class="bi bi-eye"></span>
             <span class="bi bi-bookmark"></span>
         </div>
@@ -66,7 +70,11 @@
     @else
         <div class="post-actions d-flex justify-content-between pe-5">
             <span class="bi bi-chat"></span>
-            <span class="bi bi-hand-thumbs-up"></span>
+            <button class="like-btn btn px-2 py-0" data-post-id="{{ $post->id }}"
+                data-liked="{{ $post->isLike() ? 'true' : 'false' }}" onclick="handleLike(this)">
+                <span
+                    class="bi  {{ $post->isLike() ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up' }}">{{ $post->likes()->count() }}</span>
+            </button>
             <span class="bi bi-eye"></span>
             <span class="bi bi-bookmark"></span>
         </div>
@@ -87,5 +95,35 @@
                 seeMoreLink.style.display = "none";
             });
         });
+
+        function handleLike(button) {
+            const postId = button.getAttribute('data-post-id');
+            const isLiked = button.getAttribute('data-liked') === 'true';
+
+            // Send Ajax request
+            fetch(`/like/${postId}`, {
+                    method: isLiked ? 'DELETE' : 'POST', // Use DELETE to unlike, POST to like
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update UI based on response
+                    const span = button.querySelector('span');
+                    let counter = Number(span.textContent);
+                    data.liked ? counter++ : counter--;
+                    span.textContent = counter;
+                    span.classList.remove(data.liked ? 'bi-hand-thumbs-up' : 'bi-hand-thumbs-up-fill');
+                    span.classList.add(data.liked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up');
+
+                    // Update data-liked attribute
+                    button.setAttribute('data-liked', data.liked ? 'true' : 'false');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
     </script>
 </div>

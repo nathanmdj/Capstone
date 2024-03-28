@@ -3,7 +3,13 @@
         enctype="multipart/form-data">
         @csrf
         <div class="text-area d-flex ">
-            <span class="bi bi-person-circle"></span>
+            @if (auth()->user()->info->getImageUrl() ?? false)
+                <div class="profile-img">
+                    <img src="{{ auth()->user()->info->getImageUrl() }}" alt="">
+                </div>
+            @else
+                <span class="bi bi-person-circle"></span>
+            @endif
             <textarea name="content" class="form-control bg-primary text-info border-0 "
                 style="resize: none; overflow-y: hidden;"oninput="autoAdjust(this)" placeholder="Post your reply"></textarea>
         </div>

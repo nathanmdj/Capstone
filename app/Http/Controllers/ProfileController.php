@@ -81,7 +81,9 @@ class ProfileController extends Controller
         $user->info->update($validated);
 
         $posts = Post::with('user')->where('user_id', $profile->id)->get();
-        return view('profile.show', compact('user', 'posts'));
+        $followerCount = $user->followers()->count();
+        $followingCount = $user->followings()->count();
+        return view('profile.show', compact('user', 'posts', 'followerCount', 'followingCount'));
     }
 
     /**
