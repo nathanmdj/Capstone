@@ -39,7 +39,6 @@
             @else
                 <a href="{{ route('post.show', $post->id) }}">
                     <div class="post-with-more">
-
                         <p>
                             <pre class="content" style="max-height: 400px;">{!! htmlspecialchars($post->content) !!}</pre>
                         </p>

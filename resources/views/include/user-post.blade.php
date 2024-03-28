@@ -35,10 +35,12 @@
                         <pre>{!! htmlspecialchars($post->content) !!}</pre>
                     </p>
                 @else
-                    <p>
-                        <pre id="content" style="max-height: 400px;">{!! htmlspecialchars($post->content) !!}</pre>
-                    </p>
-                    <p id="see-more" style="display: none;" class="text-success fw-bold fs-6">Show More . . .</p>
+                    <a href="{{ route('post.show', $post->id) }}">
+                        <p>
+                            <pre id="content" style="max-height: 400px;">{!! htmlspecialchars($post->content) !!}</pre>
+                        </p>
+                        <p id="see-more" style="display: none;" class="text-success fw-bold fs-6">Show More . . .</p>
+                    </a>
                 @endif
             @endif
         </div>

@@ -20,4 +20,14 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function likes_comment()
+    {
+        return $this->belongsToMany(User::class, 'likes_comment')->withTimestamps();
+    }
+
+    public function isLike()
+    {
+        return $this->likes_comment()->where('user_id', auth()->id())->exists();
+    }
 }

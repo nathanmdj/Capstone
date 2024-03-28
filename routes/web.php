@@ -45,6 +45,10 @@ Route::post('like/{post}', [LikeController::class, 'like'])->name('post.like')->
 
 Route::delete('like/{post}', [LikeController::class, 'unlike'])->name('post.unlike')->middleware('auth');
 
+Route::post('likeComment/{comment}', [LikeController::class, 'likeComment'])->name('comment.like')->middleware('auth');
+
+Route::delete('likeComment/{comment}', [LikeController::class, 'unlikeComment'])->name('comment.unlike')->middleware('auth');
+
 Route::get('/messages', [MessageController::class, 'messages'])->name('messages')->middleware('auth');
 
 Route::get('/bookmarks', [BookmarkController::class, 'bookmarks'])->name('bookmarks')->middleware('auth');

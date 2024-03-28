@@ -6,9 +6,11 @@
             @include('profile.edit')
         @else
             <div class="cover-photo">
-                <div class="cover-img">
-                    <img id="upload2" src="{{ $user->info->getCoverUrl() }}" alt="">
-                </div>
+                @if ($user->info->getCoverUrl())
+                    <div class="cover-img">
+                        <img id="upload2" src="{{ $user->info->getCoverUrl() }}" alt="">
+                    </div>
+                @endif
                 @if ($user->info->getImageUrl() ?? false)
                     <div class="profile-img">
                         <img id="upload" src="{{ $user->info->getImageUrl() }}" alt="">
@@ -55,19 +57,17 @@
 
                 <div class="follows d-flex gap-3">
                     <p>
-                        <span class="counter">{{ $user->followers()->count() }}</span>
+                        <span class="counter">{{ $user->followings()->count() }}</span>
                         Following
                     </p>
                     <p>
-                        <span class="counter">{{ $user->followings()->count() }}</span>
+                        <span class="counter">{{ $user->followers()->count() }}</span>
                         Followers
                     </p>
                 </div>
             </div>
             @foreach ($posts as $post)
-                <a href="{{ route('post.show', $post->id) }}">
-                    @include('include.user-post')
-                </a>
+                @include('include.user-post')
             @endforeach
         @endif
     </div>
