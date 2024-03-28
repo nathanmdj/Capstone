@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -9,14 +10,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $post = Post::with('user')->orderBy('created_at', 'desc');
+        $posts = Post::with('user.info')->orderBy('created_at', 'desc');
 
         if (request()->has('search')) {
-            $post = $post->where('content', 'like', '%' . request()->get('search', '') . '%');
+            $posts = $posts->where('content', 'like', '%' . request()->get('search', '') . '%');
         }
 
-        return view('home', [
-            'posts' => $post->get()
-        ]);
+        $posts = $posts->get();
+
+        return view('home', compact('posts'));
     }
 }

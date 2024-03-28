@@ -13,9 +13,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('profile') }}"
-                            class="nav-link {{ request()->is('profile') ? 'active' : '' }}">
-                            <span class="bi {{ request()->is('profile') ? 'bi-person-fill' : 'bi-person' }}"></span>
+                        <a href="{{ route('profile.show', auth()->id()) }}"
+                            class="nav-link {{ request()->is('profile/*') ? 'active' : '' }}">
+                            <span class="bi {{ request()->is('profile/*') ? 'bi-person-fill' : 'bi-person' }}"></span>
                             <span class="d-none d-xl-inline ">Profile</span>
                         </a>
                     </li>

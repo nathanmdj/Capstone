@@ -10,7 +10,7 @@ class ResourceController extends Controller
     public function resources()
     {
 
-        $resources = Resource::orderBy('name', 'asc');
+        $resources = Resource::orderBy('category', 'asc');
 
         return view('resources', [
             'resources' => $resources->get()

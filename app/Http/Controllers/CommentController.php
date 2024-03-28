@@ -17,7 +17,7 @@ class CommentController extends Controller
         $comment->content = request()->get('content');
         $comment->save();
 
-        return redirect()->route('post.show', $post->id);
+        return redirect()->back();
     }
 
     public function show(Post $post)
@@ -32,6 +32,6 @@ class CommentController extends Controller
         $id = $comment->id;
         Comment::where('id', $id)->firstOrFail()->delete();
 
-        return redirect()->route('post.show', $post->id);
+        return redirect()->back();
     }
 }

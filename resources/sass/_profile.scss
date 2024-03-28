@@ -1,0 +1,183 @@
+.profile {
+    .cover-photo {
+        position: relative;
+        background-color: $gray-800;
+        height: 200px;
+
+        .profile-img {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: $primary;
+            top: 125px;
+            left: 25px;
+            overflow: hidden;
+            border: 4px solid $primary;
+            img {
+                width: 100%;
+            }
+        }
+        .upload-cover {
+            width: 60px;
+            height: 60px;
+            // background-color: rgba($color: $black , $alpha: 0.5);
+            border-radius: 50%;
+            position: absolute;
+            top: 70px;
+            left: calc(50% - 30px);
+
+            &:hover {
+                background-color: rgba($color: $black , $alpha: 0.3);
+                cursor: pointer;
+            }
+
+            img {
+                width: 30px;
+                position: absolute;
+                top: 15px;
+                left: 15px;
+            }
+        }
+
+        .upload-photo {
+            width: 60px;
+            height: 60px;
+            background-color: rgba($color: $black , $alpha: 0.5);
+            border-radius: 50%;
+            position: absolute;
+            top: 170px;
+            left: 70px;
+
+            button {
+                width: 100%;
+            }
+            &:hover {
+                background-color: rgba($color: $black , $alpha: 0.3);
+                cursor: pointer;
+            }
+            img {
+                width: 30px;
+                position: absolute;
+                top: 15px;
+                left: 15px;
+            }
+        }
+    }
+
+    .edit-profile {
+
+        button {
+            font-size: 1rem;
+            font-weight: 600;
+            border: solid 0.5px gray;
+            padding: 10px 20px;
+
+            &:hover {
+                background-color: $post-hover;
+            }
+        }
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            color: #fff;
+
+          label {
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+          }
+
+          label .input {
+            background-color: $primary;
+            color: #fff;
+            width: 100%;
+            padding: 20px 05px 05px 10px;
+            outline: 0;
+            border: 1px solid rgba(105, 105, 105, 0.397);
+            border-radius: 10px;
+          }
+
+          label .input + span {
+            color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            left: 10px;
+            top: 0px;
+            font-size: 0.9em;
+            cursor: text;
+            transition: 0.3s ease;
+          }
+
+          label .input:placeholder-shown + span {
+            top: 12.5px;
+            font-size: 1.1em;
+          }
+
+          label .input:focus + span,
+          label .input:valid + span {
+            color: rgb(41, 131, 41);
+            top: 0px;
+            font-size: 0.9em;
+            font-weight: 600;
+          }
+
+          .input {
+            font-size: medium;
+            &:focus {
+                border: 2px solid rgb(41, 131, 41);
+            }
+          }
+
+          .submit {
+            border: none;
+            outline: none;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+            transform: .3s ease;
+            background-color: #00bfff;
+          }
+
+          @keyframes pulse {
+            from {
+              transform: scale(0.9);
+              opacity: 1;
+            }
+
+            to {
+              transform: scale(1.8);
+              opacity: 0;
+            }
+          }
+
+    }
+
+    .info {
+        padding-left: 20px;
+        border-bottom: solid gray 0.5px;
+
+        color: white;
+
+        h2{
+            margin-bottom: 0;
+        }
+
+        p, span {
+            font-size: 1rem;
+            color: gray;
+        }
+
+        span {
+            margin-right: 3px;
+        }
+
+        .counter {
+            color: white;
+        }
+    }
+
+}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Info;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,10 @@ class AuthController extends Controller
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
-
+        Info::create([
+            'user_id' => auth()->id(),
+            'name' => auth()->user()->username
+        ]);
         return redirect()->route('home');
     }
 
@@ -43,6 +47,12 @@ class AuthController extends Controller
         ]);
 
         if (auth()->attempt($validated)) {
+            if (!auth()->user()->info) {
+                Info::create([
+                    'user_id' => auth()->id(),
+                    'name' => auth()->user()->username
+                ]);
+            }
             request()->session()->regenerate();
             return redirect()->route('home');
         }

@@ -35,6 +35,7 @@ class PostController extends Controller
         }
 
         $editing = true;
+
         return view('posts.show', compact('post', 'editing'));
     }
 

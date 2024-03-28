@@ -3,9 +3,7 @@
     <div class="home">
         @include('include.submit-post')
         @foreach ($posts as $post)
-            <a href="{{ route('post.show', $post->id) }}">
-                @include('include.post-card')
-            </a>
+            @include('include.post-card')
         @endforeach
     </div>
 @endsection

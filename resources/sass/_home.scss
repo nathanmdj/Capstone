@@ -18,6 +18,18 @@
         .status-container {
             border-bottom: solid gray 0.5px;
 
+            .profile-img {
+                width: 50px;
+                min-width: 50px;
+                height: 50px;
+                overflow: hidden;
+                border-radius: 50%;
+
+                img {
+                    width: 100%;
+                }
+            }
+
             .text-area span {
                 font-size: 2rem;
                 margin-right: 20px;
@@ -46,8 +58,8 @@
         }
 
         span {
-            font-size: 2rem;
-            margin-right: 20px;
+            font-size: 2.9rem;
+            margin-right: 10px;
             color: white;
         }
     }

@@ -1,8 +1,17 @@
 <div class="status-container h-auto pb-3">
     <form action="{{ route('post.create') }}" method="POST" class="p-3" enctype="multipart/form-data">
         @csrf
-        <div class="text-area d-flex ">
-            <span class="bi bi-person-circle"></span>
+        <div class="text-area d-flex justify-content-evenly ">
+            @if (auth()->user()->info->getImageUrl() ?? false)
+                <a href="{{ route('profile.show', auth()->id()) }}">
+                    <div class="profile-img">
+                        <img src="{{ auth()->user()->info->getImageUrl() }}" alt="">
+                    </div>
+                </a>
+            @else
+                <span class="bi bi-person-circle"></span>
+            @endif
+
             <textarea name="content"class="form-control bg-primary text-info border-0 "
                 style="resize: none; overflow-y: hidden;"oninput="autoAdjust(this)" placeholder="Need help? Ask!"></textarea>
         </div>
