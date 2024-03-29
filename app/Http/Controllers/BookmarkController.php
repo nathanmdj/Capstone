@@ -8,11 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class BookmarkController extends Controller
 {
-    public function show()
+    public function show(Post $post)
     {
-        $bookmarks = Post::whereHas('bookmarks', function ($query) {
-            $query->where('user_id', Auth::id());
-        })->get();
+
+        $bookmarks = Post::select('posts.*') // Select all columns from the posts table
+            ->join('bookmarks', 'posts.id', '=', 'bookmarks.post_id')
+            ->where('bookmarks.user_id', Auth::id())
+            ->orderBy('bookmarks.created_at', 'desc')
+            ->get();
         return view('bookmarks', compact('bookmarks'));
     }
 

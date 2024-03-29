@@ -72,9 +72,16 @@
         }
     }
 
-
 }
 
+.bookmarks {
+    .header {
+        border-bottom: solid rgba(128, 128, 128,0.4) 0.5px;
+        h2 {
+margin-bottom: 0;
+        }
+    }
+}
 .view-post {
     .back-group {
         display: flex;

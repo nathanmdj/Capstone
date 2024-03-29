@@ -1,4 +1,6 @@
 @extends('layouts.homeLayout')
 @section('content')
-    <h1>Messages</h1>
+    <div class="m-3 text-white">
+        <h2 class="fw-bolder">Messages</h2>
+    </div>
 @endsection
