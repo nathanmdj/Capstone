@@ -2,9 +2,11 @@
     <div class="upload-cover" id="upload-cover">
         <img src="{{ asset('images/icons8-add-camera-48.png') }}" alt="">
     </div>
-    <div class="cover-img">
-        <img id="upload2" src="{{ $user->info->getCoverUrl() }}" alt="">
-    </div>
+    @if ($user->info->getCoverUrl())
+        <div class="cover-img">
+            <img id="upload2" src="{{ $user->info->getCoverUrl() }}" alt="">
+        </div>
+    @endif
     @if (auth()->user()->info->getImageUrl() ?? false)
         <div class="profile-img">
             <img id="upload" src="{{ $user->info->getImageUrl() }}" alt="">

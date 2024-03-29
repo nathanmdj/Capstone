@@ -30,8 +30,18 @@ class Post extends Model
         return $this->belongsToMany(User::class, 'likes')->withTimestamps();
     }
 
+    public function bookmarks()
+    {
+        return $this->belongsToMany(User::class, 'bookmarks')->withTimestamps();
+    }
+
     public function isLike()
     {
         return $this->likes()->where('user_id', auth()->id())->exists();
+    }
+
+    public function bookmarked()
+    {
+        return $this->bookmarks()->where('user_id', auth()->id())->exists();
     }
 }

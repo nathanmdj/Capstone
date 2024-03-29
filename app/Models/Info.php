@@ -29,6 +29,8 @@ class Info extends Model
         if ($this->photo) {
             return url('storage/' . $this->photo);
         }
+
+        return url('storage/profile/' . 'default.png');
     }
 
     public function getCoverUrl()

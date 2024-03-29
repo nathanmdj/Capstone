@@ -49,8 +49,12 @@ Route::post('likeComment/{comment}', [LikeController::class, 'likeComment'])->na
 
 Route::delete('likeComment/{comment}', [LikeController::class, 'unlikeComment'])->name('comment.unlike')->middleware('auth');
 
+Route::get('bookmarks', [BookmarkController::class, 'show'])->name('bookmarks.show')->middleware('auth');
+
+Route::post('bookmarks/{post}', [BookmarkController::class, 'store'])->name('bookmarks.store')->middleware('auth');
+
+Route::delete('bookmarks/{post}', [BookmarkController::class, 'destroy'])->name('bookmarks.destroy')->middleware('auth');
+
+
 Route::get('/messages', [MessageController::class, 'messages'])->name('messages')->middleware('auth');
-
-Route::get('/bookmarks', [BookmarkController::class, 'bookmarks'])->name('bookmarks')->middleware('auth');
-
 Route::get('/resources', [ResourceController::class, 'resources'])->name('resources')->middleware('auth');

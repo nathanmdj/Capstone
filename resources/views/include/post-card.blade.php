@@ -1,15 +1,13 @@
 <div id="posts-container" class="post-container card text-info bg-primary rounded-0 p-3">
     {{-- {{ dump($editing ?? false) }} --}}
     <div class="post-header d-flex align-items-start  ">
-        @if ($post->user->info->getImageUrl() ?? false)
-            <a href="{{ route('profile.show', $post->user->id) }}">
-                <div class="profile-img">
-                    <img src="{{ $post->user->info->getImageUrl() }}" alt="">
-                </div>
-            </a>
-        @else
-            <span class="bi bi-person-circle"></span>
-        @endif
+
+        <a href="{{ route('profile.show', $post->user->id) }}">
+            <div class="profile-img">
+                <img src="{{ $post->user->info->getImageUrl() }}" alt="">
+            </div>
+        </a>
+
         <div class="post-content card-body p-1">
             <div class="d-flex justify-content-between ">
                 <div class="d-flex">
@@ -83,60 +81,96 @@
             </button>
 
             <span class="bi bi-eye"></span>
-            <span class="bi bi-bookmark"></span>
+            <button class="like-btn btn px-2 py-0" data-post-id="{{ $post->id }}"
+                data-marked="{{ $post->bookmarked() ? 'true' : 'false' }}" onclick="handleBMark(this)">
+                <span
+                    class="bi  {{ $post->bookmarked() ? 'bi-bookmark-fill' : 'bi-bookmark' }}">{{ $post->bookmarks()->count() }}</span>
+            </button>
         </div>
     @endif
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var preElements = document.querySelectorAll(".content");
-            var seeMoreLinks = document.querySelectorAll(".see-more");
-
-            preElements.forEach(function(pre, index) {
-                var seeMoreLink = seeMoreLinks[index];
-
-                if (pre.scrollHeight > 400) {
-                    seeMoreLink.style.display = "block";
-                }
-
-                seeMoreLink.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    pre.style.maxHeight = "none"; // Set maxHeight for individual pre element
-                    seeMoreLink.style.display = "none";
-                });
-            });
-
-
-        });
-
-        function handleLike(button) {
-            const postId = button.getAttribute('data-post-id');
-            const isLiked = button.getAttribute('data-liked') === 'true';
-
-            // Send Ajax request
-            fetch(`/like/${postId}`, {
-                    method: isLiked ? 'DELETE' : 'POST', // Use DELETE to unlike, POST to like
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Content-Type': 'application/json'
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    // Update UI based on response
-                    const span = button.querySelector('span');
-                    let counter = Number(span.textContent);
-                    data.liked ? counter++ : counter--;
-                    span.textContent = counter;
-                    span.classList.remove(data.liked ? 'bi-hand-thumbs-up' : 'bi-hand-thumbs-up-fill');
-                    span.classList.add(data.liked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up');
-
-                    // Update data-liked attribute
-                    button.setAttribute('data-liked', data.liked ? 'true' : 'false');
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-    </script>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var preElements = document.querySelectorAll(".content");
+        var seeMoreLinks = document.querySelectorAll(".see-more");
+
+        preElements.forEach(function(pre, index) {
+            var seeMoreLink = seeMoreLinks[index];
+
+            if (pre.scrollHeight > 400) {
+                seeMoreLink.style.display = "block";
+            }
+
+            seeMoreLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                pre.style.maxHeight = "none"; // Set maxHeight for individual pre element
+                seeMoreLink.style.display = "none";
+            });
+        });
+    });
+</script>
+
+<script>
+    function handleLike(button) {
+        const postId = button.getAttribute('data-post-id');
+        const isLiked = button.getAttribute('data-liked') === 'true';
+
+        // Send Ajax request
+        fetch(`/like/${postId}`, {
+                method: isLiked ? 'DELETE' : 'POST', // Use DELETE to unlike, POST to like
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update UI based on response
+                const span = button.querySelector('span');
+                let counter = Number(span.textContent);
+                data.liked ? counter++ : counter--;
+                span.textContent = counter;
+                span.classList.remove(data.liked ? 'bi-hand-thumbs-up' : 'bi-hand-thumbs-up-fill');
+                span.classList.add(data.liked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up');
+
+                // Update data-liked attribute
+                button.setAttribute('data-liked', data.liked ? 'true' : 'false');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+
+<script>
+    function handleBMark(button) {
+        const postId = button.getAttribute('data-post-id');
+        const isMarked = button.getAttribute('data-marked') === 'true';
+
+        // Send Ajax request
+        fetch(`/bookmarks/${postId}`, {
+                method: isMarked ? 'DELETE' : 'POST', // Use DELETE to unlike, POST to like
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update UI based on response
+                const span = button.querySelector('span');
+                let counter = Number(span.textContent);
+                data.marked ? counter++ : counter--;
+                span.textContent = counter;
+                span.classList.remove(data.marked ? 'bi-bookmark' : 'bi-bookmark-fill');
+                span.classList.add(data.marked ? 'bi-bookmark-fill' : 'bi-bookmark');
+
+                // Update data-liked attribute
+                button.setAttribute('data-marked', data.marked ? 'true' : 'false');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>

@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('bookmarks') }}"
+                        <a href="{{ route('bookmarks.show') }}"
                             class="nav-link {{ request()->is('bookmarks') ? 'active' : '' }}">
                             <span
                                 class="bi {{ request()->is('bookmarks') ? 'bi-bookmark-fill' : 'bi-bookmark' }}"></span>
