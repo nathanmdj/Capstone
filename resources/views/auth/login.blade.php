@@ -10,13 +10,14 @@
 
             <!---Left Box--->
 
-            <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box bg-black">
+            <div
+                class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box bg-black h-auto">
                 <div class="featured-image mb-3">
                     <img src="images/devx.png" class="img-fluid" style="width: 250px;" alt="Left Icon">
                 </div>
                 <p class="text-white fs-2" style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Be
                     Verified</p>
-                <small class="text-white text-wrap text-center"
+                <small class="text-white text-wrap text-center mb-4"
                     style="width: 17rem; font-family: 'Courier New', Courier, monospace;">The Social Media for all
                     Developers.</small>
             </div>
