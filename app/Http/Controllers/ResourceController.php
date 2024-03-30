@@ -7,13 +7,19 @@ use Illuminate\Http\Request;
 
 class ResourceController extends Controller
 {
-    public function resources()
+    public function show()
     {
 
-        $resources = Resource::orderBy('category', 'asc');
+        $resources = Resource::orderBy('category', 'asc')->get();
+        $filter = Resource::orderBy('name', 'asc')->get();
+        return view('resources', compact('resources', 'filter'));
+    }
 
-        return view('resources', [
-            'resources' => $resources->get()
-        ]);
+    public function filter($category)
+    {
+
+        $resources = Resource::orderBy('category', 'asc')->get();
+        $filter = Resource::where('category', $category)->orderBy('name', 'asc')->get();
+        return view('resources', compact('resources', 'filter'));
     }
 }

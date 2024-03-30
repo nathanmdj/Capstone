@@ -3,46 +3,8 @@
     <div class="container-fluid">
         <div class="row">
 
-            <nav class="navbar nav-resources flex-column col-md-4 navbar-expand-lg bg-body-primary">
-                <div class="container-fluid justify-content-center align-items-center">
-
-                    <button class="navbar-toggler bg-white justify-content-center align-items-center" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav flex-column me-auto mb-2 mb-lg-0 mx-md-3 rounded-5">
-
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-white form-control form-control-lg">
-                                    <span class="fs-4 d-sm-inline ms-3">All</span>
-                                </a>
-                            </li>
-                            @php
-                                $uniqueCategories = [];
-                                foreach ($resources as $resource) {
-                                    if (!in_array($resource->category, $uniqueCategories)) {
-                                        $uniqueCategories[] = $resource->category;
-                                    }
-                                }
-                            @endphp
-                            @foreach ($uniqueCategories as $category)
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link text-white form-control form-control-lg">
-                                        <span class="fs-4 d-sm-inline ms-3">{{ $category }}</span>
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-
-            @foreach ($resources as $resource)
-                <div class="col-md-8 main px-4 py-4">
+            @foreach ($filter as $resource)
+                <div class="col-md-4 main px-4 py-4">
                     <!--Card-->
                     <div>
                         <a href="{{ $resource->url }}" target="_blank">
@@ -55,7 +17,8 @@
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $resource->name }}</h5>
-                                            <p class="card-text">{{ $resource->description }}</p>
+                                            <p class="card-text" style="max-height: 300px; overflow:hidden">
+                                                {{ $resource->description }}</p>
                                         </div>
                                     </div>
                                 </div>
