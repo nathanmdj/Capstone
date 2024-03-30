@@ -58,7 +58,7 @@
                                         Me</small></label>
                             </div>
                             <div class="forgot">
-                                <small><a href='#'>Forgot Password?</a></small>
+                                <small><a href='#' style="color: blue">Forgot Password?</a></small>
                             </div>
                         </div>
                         <div class="input-group mb-3">
@@ -70,7 +70,7 @@
                                 class="me-2"><small>Sign In with Google</small></button>
                     </div>
                     <div class="row">
-                        <small>Don't have account? <a href="{{ route('register') }}">Sign Up</a></small>
+                        <small>Don't have account? <a href="{{ route('register') }}" style="color: blue">Sign Up</a></small>
                     </div>
                 </div>
             </div>

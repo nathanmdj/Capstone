@@ -4,27 +4,26 @@
         <div class="row">
 
             @foreach ($filter as $resource)
-                <div class="col-md-4 main px-4 py-4">
+                <div class="col-md-6 main px-2 py-2">
                     <!--Card-->
-                    <div>
-                        <a href="{{ $resource->url }}" target="_blank">
-                            <div class="card mb-3" style="max-width: 540px;">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img src="{{ $resource->img_url }}" class="img-fluid rounded-start" alt="...">
-                                    </div>
+                    <a href="{{ $resource->url }}" target="_blank">
+                        <div class="card mb-1 h-100 mx-auto" style="max-width: 370px;">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img src="{{ $resource->img_url }}" class="img-fluid rounded-start px-0"
+                                        style="width: 100px; height: 100px;" alt="...">
+                                </div>
 
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ $resource->name }}</h5>
-                                            <p class="card-text" style="max-height: 300px; overflow:hidden">
-                                                {{ $resource->description }}</p>
-                                        </div>
+                                <div class="col-lg-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $resource->name }}</h5>
+                                        <p class="card-text" style="max-height: 90px; overflow:hidden">
+                                            {{ $resource->description }}</p>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             @endforeach
 
