@@ -1,4 +1,4 @@
-<div class="col-2 sidebar-nav position-fixed">
+<div class="d-none d-md-block col-md-2 sidebar-nav position-fixed">
     <div class="d-flex flex-column vh-100">
         <div class="pt-2 logo">
             <a href="{{ route('home') }}"> <img src="{{ asset('images/devX.png') }}" alt=""></a>
@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('messages') }}"
+                        <a href="{{ route('messages.show') }}"
                             class="nav-link {{ request()->is('messages') ? 'active' : '' }}">
                             <span
                                 class="bi {{ request()->is('messages') ? 'bi-envelope-fill' : 'bi-envelope' }}"></span>

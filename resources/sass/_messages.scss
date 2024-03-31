@@ -1,0 +1,106 @@
+.messages-container{
+    .chat-rooms {
+        border-inline: solid rgba(128, 128, 128,0.4) 0.5px;
+
+        .header {
+            #newMessage {
+                border-radius: 50%;
+
+                &:hover {
+                    background-color: green;
+                }
+            }
+            span {
+                font-size: 1.4rem;
+            }
+
+            .modal-body {
+                .search {
+                    ::placeholder {
+                        color: white;
+                    }
+                }
+                .user-list {
+                    .user-info {
+                        .img-container {
+                            width: 50px;
+                            height: 50px;
+                            overflow: hidden;
+                            border-radius: 50%;
+                            img {
+                                width: 100%;
+                            }
+                        }
+                        .name {
+                            p {
+                                color: gray;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        .threads {
+            .user-info {
+                .img-container {
+                    width: 50px;
+                    height: 50px;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .name {
+                    p {
+                        color: gray;
+                    }
+                }
+            }
+        }
+
+    }
+    .conversation {
+        .chat-header {
+            border-bottom: solid rgba(128, 128, 128,0.4) 0.5px;
+            .img-container {
+                width: 50px;
+                height: 50px;
+                overflow: hidden;
+                border-radius: 50%;
+
+                img {
+                    width: 100%;
+                }
+            }
+            p {
+                color: gray;
+            }
+        }
+        .empty {
+
+            h1 {
+                font-weight: 700;
+            }
+
+        }
+        .send-message {
+            padding: 10px 30px;
+            span {
+                color: white;
+                font-size: 1.4rem;
+            }
+            #message {
+                background-color: rgb(39, 51, 64);
+                color: white;
+                caret-color: white;
+                border-color: $primary;
+
+                &::placeholder {
+                    color: white;
+                }
+            }
+        }
+    }
+}

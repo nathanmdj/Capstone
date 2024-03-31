@@ -87,4 +87,15 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Comment::class, 'likes_comment')->withTimestamps();
     }
+
+    public function threads()
+    {
+        return $this->belongsToMany(MessageThread::class, 'msg_thread_user', 'msg_thread_id', 'user_id')
+            ->withTimestamps();
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

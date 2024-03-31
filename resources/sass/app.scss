@@ -19,6 +19,8 @@
 @import 'comments';
 @import 'left-sidebar';
 @import 'profile';
+@import 'resource-sidebar';
+@import 'messages';
 
 .group-password {
     position: relative;
@@ -34,4 +36,3 @@
         font-size: 1.5rem;
     }
 }
-@import 'resource-sidebar';
