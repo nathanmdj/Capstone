@@ -34,7 +34,46 @@
 
 
 
+    <script>
+        const pusher = new Pusher('{{ config('broadcasting.connections.pusher.key') }}', {
+            cluster: 'ap1'
+        });
+        const channel = pusher.subscribe('public');
 
+
+        channel.bind('chat', function(data) {
+            console.log('Received chat event:', data);
+            $.post("/messages/receive", {
+                    _token: '{{ csrf_token() }}',
+                    message: data.message,
+                })
+                .done(function(res) {
+                    $(".chats-container > .chats").last().append(res);
+                    $(document).scrollTop($(document).height());
+                });
+        });
+
+        //Broadcast messages
+        $("#send").submit(function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: "/messages/broadcast",
+                method: 'POST',
+                headers: {
+                    'X-Socket-Id': pusher.connection.socket_id
+                },
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    message: $("#message").val(),
+                }
+            }).done(function(res) {
+                $(".chats-container > .chats").last().append(res);
+                $("#message").val('');
+                $(document).scrollTop($(document).height());
+            });
+        });
+    </script>
 </body>
 
 </html>

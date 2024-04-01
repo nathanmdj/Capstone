@@ -62,12 +62,18 @@
                     @endif
 
                 </div>
-
-                <div class="send-message mb-3">
-                    <form class="d-flex">
-                        <input type="text" id="message" name="message" autocomplete="off" class="form-control">
-                        <button class="btn"><span class="bi bi-send"></span></button>
-                    </form>
+                <div>
+                    <div class="chats-container">
+                        <div class="chats">
+                            @include('messages.receive')
+                        </div>
+                    </div>
+                    <div class="send-message mb-3">
+                        <form id="send" class="d-flex">
+                            <input type="text" id="message" name="message" autocomplete="off" class="form-control">
+                            <button class="btn"><span class="bi bi-send"></span></button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

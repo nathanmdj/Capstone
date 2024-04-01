@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'content',
+        'msg_thread_id',
+        'user_id'
+    ];
+
     public function thread()
     {
         return $this->belongsTo(MessageThread::class);

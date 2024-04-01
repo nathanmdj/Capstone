@@ -4,7 +4,7 @@
         <div class="row">
 
             @foreach ($filter as $resource)
-                <div class="col-md-6 main px-2 py-2">
+                <div class="resource-page col-md-6 main px-2 py-2">
                     <!--Card-->
                     <a href="{{ $resource->url }}" target="_blank">
                         <div class="card mb-1 h-100 mx-auto" style="max-width: 370px;">

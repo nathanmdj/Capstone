@@ -102,5 +102,36 @@
                 }
             }
         }
+        .chats-container {
+            .chats {
+                .right {
+                    display: flex;
+                    justify-content: right;
+                    padding-right: 25px;
+                    .display-right {
+                        padding: 10px 20px;
+                        background-color:rgb(49, 200, 142);
+                        display: inline;
+                    }
+                    p {
+                        display: inline;
+                    }
+                }
+                .left {
+                    display: flex;
+                    justify-content: left;
+                    padding-left: 25px;
+                    .display-left {
+                        padding: 10px 20px;
+                        background-color: rgb(61, 84, 102);
+                        display: inline;
+                    }
+                    p {
+                        display: inline;
+                    }
+                }
+            }
+
+        }
     }
 }

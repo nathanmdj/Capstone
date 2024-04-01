@@ -60,10 +60,9 @@ class MessageController extends Controller
         return view('messages.broadcast', compact('message'));
     }
 
-    // public function receive(Request $request)
-    // {
-    //     $message = $request->get('message');
-    //     return view('messages.receive', compact('message'));
-    // }
-
+    public function receive(Request $request)
+    {
+        $message = $request->get('message');
+        return view('messages.receive', compact('message'));
+    }
 }

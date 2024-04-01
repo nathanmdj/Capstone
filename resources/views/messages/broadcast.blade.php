@@ -1,4 +1,5 @@
 <div class="right text-white">
-    <p>right</p>
-    <p>{{ $message }}</p>
+    <div class="display-right rounded-4 mb-2 ">
+        <p>{{ $message }}</p>
+    </div>
 </div>

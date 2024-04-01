@@ -1,4 +1,9 @@
-<div class="left text-white">
-    <p>left</p>
-    <p>{{ $message }}</p>
+<div class="left">
+    @if ($message ?? false)
+        <div class="display-left rounded-4 mb-2 ">
+
+            <p>{{ $message }}</p>
+
+        </div>
+    @endif
 </div>
