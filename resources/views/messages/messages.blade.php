@@ -29,7 +29,7 @@
 
         </div>
         <div class="conversation col-sm-7 p-0 ">
-            <div class="empty vh-100 d-flex flex-column justify-content-between  ">
+            <div class="empty d-flex flex-column justify-content-between  ">
                 {{-- <div class="empty-message d-flex align-items-center justify-content-center">
                     <h1>Select a message</h1>
                     <p>Choose from your existing conversations, start a new one, or just keep swimming.</p>
@@ -68,13 +68,13 @@
                             @include('messages.receive')
                         </div>
                     </div>
-                    <div class="send-message mb-3">
-                        <form id="send" class="d-flex">
-                            <input type="text" id="message" name="message" autocomplete="off" class="form-control">
-                            <button class="btn"><span class="bi bi-send"></span></button>
-                        </form>
-                    </div>
                 </div>
+            </div>
+            <div class="send-message mb-3 ">
+                <form id="send" class="d-flex">
+                    <input type="text" id="message" name="message" autocomplete="off" class="form-control">
+                    <button class="btn"><span class="bi bi-send"></span></button>
+                </form>
             </div>
         </div>
     </div>

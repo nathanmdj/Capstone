@@ -62,6 +62,7 @@
 
     }
     .conversation {
+
         .chat-header {
             border-bottom: solid rgba(128, 128, 128,0.4) 0.5px;
             .img-container {
@@ -79,7 +80,9 @@
             }
         }
         .empty {
-
+            overflow: auto;
+            max-height: 90vh;
+            height: 100vh;
             h1 {
                 font-weight: 700;
             }
@@ -103,18 +106,23 @@
             }
         }
         .chats-container {
+
             .chats {
                 .right {
                     display: flex;
                     justify-content: right;
                     padding-right: 25px;
+
                     .display-right {
+                        max-width: 70%;
                         padding: 10px 20px;
                         background-color:rgb(49, 200, 142);
                         display: inline;
                     }
                     p {
+                        width: 100%;
                         display: inline;
+                        word-wrap: break-word;
                     }
                 }
                 .left {
@@ -122,12 +130,15 @@
                     justify-content: left;
                     padding-left: 25px;
                     .display-left {
+                        max-width: 70%;
                         padding: 10px 20px;
                         background-color: rgb(61, 84, 102);
                         display: inline;
                     }
                     p {
+                        width: 100%;
                         display: inline;
+                        word-wrap: break-word;
                     }
                 }
             }

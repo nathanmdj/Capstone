@@ -19,7 +19,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('aut
 Route::group(['prefix' => 'post', 'as' => 'post.', 'middleware' => 'auth'], function () {
     Route::post('', [PostController::class, 'store'])->name('create');
 
-
     Route::get('/{post}', [PostController::class, 'show'])->name('show');
 
     Route::get('/{post}/edit', [PostController::class, 'edit'])->name('edit');
