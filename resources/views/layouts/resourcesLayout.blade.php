@@ -18,11 +18,11 @@
     <div class="bg-primary vh-100 resources">
         <div class="row">
 
-            <div class="col-md-3">
+            <div class="col-lg-3">
                 @include('include.resource-sidebar')
             </div>
 
-            <div class="col-md-9">
+            <div class="col-lg-9">
                 @yield('content')
             </div>
 

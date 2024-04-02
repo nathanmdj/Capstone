@@ -1,10 +1,12 @@
 <nav class="navbar nav-resources flex-column navbar-expand-lg bg-body-primary">
     <div class="container-fluid justify-content-center align-items-center">
 
+
         <button class="navbar-toggler bg-info justify-content-center align-items-center" type="button"
             data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-expanded="false" data-bs-backdrop="static"
             aria-controls="offcanvasScrolling">
             <span class="navbar-toggler-icon"></span></button>
+
 
         <div class="offcanvas offcanvas-top h-100" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
             id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -32,13 +34,14 @@
                         <li class="nav-item">
                             <a href="{{ route('resources.filter', $category) }}"
                                 class="nav-link text-white form-control form-control-lg">
-                                <span class="resource-link fs-4 d-sm-inline ms-3">{{ $category }}</span>
+                                <span class="resource-link fs-md-5 d-sm-inline ms-3">{{ $category }}</span>
                             </a>
                         </li>
                     @endforeach
                 </ul>
             </div>
         </div>
+
 
     </div>
 </nav>
