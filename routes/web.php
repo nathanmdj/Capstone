@@ -57,6 +57,6 @@ Route::delete('bookmarks/{post}', [BookmarkController::class, 'destroy'])->name(
 
 
 Route::get('/messages', [MessageController::class, 'messages'])->name('messages')->middleware('auth');
-Route::get('/resources', [ResourceController::class, 'show'])->name('resources')->middleware('auth');
+Route::get('/resource', [ResourceController::class, 'show'])->name('resources')->middleware('auth');
 
-Route::get('/resources/{category}', [ResourceController::class, 'filter'])->name('resources.filter')->middleware('auth');
+Route::get('/resource/{category}', [ResourceController::class, 'filter'])->name('resources.filter')->middleware('auth');
