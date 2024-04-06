@@ -43,7 +43,7 @@
 
         channel.bind('chat', function(data) {
             console.log('Received chat event:', data);
-            $.post("/messages/receive", {
+            $.post("/devX/messages/receive", {
                     _token: '{{ csrf_token() }}',
                     message: data.message,
                 })
@@ -58,7 +58,7 @@
             event.preventDefault();
 
             $.ajax({
-                url: "/messages/broadcast",
+                url: "/devX/messages/broadcast",
                 method: 'POST',
                 headers: {
                     'X-Socket-Id': pusher.connection.socket_id

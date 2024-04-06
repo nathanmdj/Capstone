@@ -9,7 +9,6 @@ class ResourceController extends Controller
 {
     public function show()
     {
-
         $resources = Resource::orderBy('category', 'asc')->get();
         $filter = Resource::orderBy('name', 'asc')->get();
         return view('resources', compact('resources', 'filter'));

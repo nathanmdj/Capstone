@@ -1,0 +1,37 @@
+.right-sidebar {
+    position: relative;
+    .sidebar-container {
+        margin-top: 70px;
+        position: fixed;
+        width: clamp(150px, 20%, 220px);
+    }
+    .ads {
+        img {
+            height: 180px;
+            object-fit: cover;
+        }
+    }
+    .trend-container{
+        background-color: rgb(30, 39, 50);
+        border-radius: 10px;
+        padding: 0;
+        .header {
+            padding: 10px;
+        }
+        h4 {
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        .topics {
+            padding: 20px 10px;
+            h5 {
+                font-weight: 800;
+            }
+
+            &:hover {
+                background-color: $gray-800;
+                cursor: pointer;
+            }
+        }
+    }
+}
