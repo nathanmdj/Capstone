@@ -6,15 +6,14 @@
         <div class="header">
             <h4>Trending Topics</h4>
         </div>
-        <div class="topics">
-            <h5>#Laravel11.0</h5>
-        </div>
-        <div class="topics">
-            <h5>#OOP</h5>
-        </div>
-        <div class="topics">
-            <h5>#Polymorphism</h5>
-        </div>
+        @foreach ($trendingHashtags as $trend)
+            <a href="{{ url("/?search=$trend->name") }}">
+                <div class="topics">
+                    <h5>{{ '#' . $trend->name }}</h5>
+                </div>
+            </a>
+        @endforeach
+
     </div>
 </div>
 <script>

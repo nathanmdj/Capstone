@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hashtag;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,9 @@ class BookmarkController extends Controller
             ->where('bookmarks.user_id', Auth::id())
             ->orderBy('bookmarks.created_at', 'desc')
             ->get();
-        return view('bookmarks', compact('bookmarks'));
+
+        $trendingHashtags = Hashtag::orderBy('usage_count', 'desc')->take(5)->get();
+        return view('bookmarks', compact('bookmarks', 'trendingHashtags'));
     }
 
     public function store(Post $post)

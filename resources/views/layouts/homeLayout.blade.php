@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="container-xl header fixed-top">
+    <div class="container-xl header fixed-top d-none d-md-block">
         <div class="row">
 
             <div class="pt-2 logo col-2 d-flex justify-content-center d-lg-block">
@@ -34,11 +34,11 @@
     <div class="container-xl home-page">
         <div class="row">
             @include('include.left-sidebar')
-            <div class="col-2 "></div>
-            <div class="col-7 col-xl-8 main-content min-vh-100 p-0">
+            <div class="col-md-2 "></div>
+            <div class="col-md-7 col-xl-8 main-content min-vh-100 p-0">
                 @yield('content')
             </div>
-            <div class="col-3 col-xl-2 right-sidebar">
+            <div class="col-md-3 col-xl-2 right-sidebar">
                 @include('include.right-sidebar')
             </div>
 

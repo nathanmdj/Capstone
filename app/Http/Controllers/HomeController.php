@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Hashtag;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class HomeController extends Controller
         }
 
         $posts = $posts->get();
+        $trendingHashtags = Hashtag::orderBy('usage_count', 'desc')->take(5)->get();
 
-        return view('home', compact('posts'));
+        return view('home', compact('posts', 'trendingHashtags'));
     }
 }

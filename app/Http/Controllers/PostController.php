@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hashtag;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -19,13 +21,26 @@ class PostController extends Controller
 
         Post::create($validated);
 
-        return redirect()->route('home');
+        preg_match_all('/#(\w+)/', request()->content, $matches);
+        $hashtags = $matches[1]; // Extracted hashtags
+
+        // Increment hashtag usage count
+        foreach ($hashtags as $tag) {
+            $hashtag = Hashtag::firstOrCreate([
+                'name' => $tag
+            ]);
+            $hashtag->increment('usage_count');
+        }
+
+
+        return redirect()->back();
     }
 
     public function show(Post $post)
     {
         $showing = true;
-        return view('posts.show', compact('post', 'showing'));
+        $trendingHashtags = Hashtag::orderBy('usage_count', 'desc')->take(5)->get();
+        return view('posts.show', compact('post', 'showing', 'trendingHashtags'));
     }
 
     public function edit(Post $post)
@@ -35,8 +50,8 @@ class PostController extends Controller
         }
 
         $editing = true;
-
-        return view('posts.show', compact('post', 'editing'));
+        $trendingHashtags = Hashtag::orderBy('usage_count', 'desc')->take(5)->get();
+        return view('posts.show', compact('post', 'editing', 'trendingHashtags'));
     }
 
     public function update(Post $post)
@@ -50,6 +65,17 @@ class PostController extends Controller
         ]);
 
         $post->update($validated);
+
+        preg_match_all('/#(\w+)/', request()->content, $matches);
+        $hashtags = $matches[1]; // Extracted hashtags
+
+        // Increment hashtag usage count
+        foreach ($hashtags as $tag) {
+            $hashtag = Hashtag::firstOrCreate([
+                'name' => $tag
+            ]);
+            $hashtag->increment('usage_count');
+        }
 
         return redirect()->route('post.show', $post->id);
     }
