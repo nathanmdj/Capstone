@@ -50,6 +50,7 @@ class ProfileController extends Controller
 
             Storage::disk('public')->delete($user->info->photo ?? '');
         }
+
         if (request()->has('cover')) {
             $imagePath = request()->file('cover')->store('profile', 'public');
             $validated['cover'] = $imagePath;

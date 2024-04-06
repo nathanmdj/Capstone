@@ -6,7 +6,7 @@
             <textarea name="content" id="content" class="form-control bg-primary text-info border-0 p-0 px-1"
                 style="resize: none; overflow-y: hidden; "oninput="autoResize(this)">{{ $post->content }}</textarea>
         </div>
-
+        <img src="{{ $post->getImageUrl() }}" alt="" class="w-100 mb-3">
         <div class="post-btn d-flex justify-content-end px-3">
             <button type="submit" class="btn btn-danger">Update</button>
         </div>

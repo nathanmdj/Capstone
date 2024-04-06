@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -15,9 +16,15 @@ class PostController extends Controller
 
         $validated = request()->validate([
             'content' => 'required',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,webp|max:5120',
         ]);
 
         $validated['user_id'] = auth()->id();
+
+        if (request()->has('photo')) {
+            $imagePath = request()->file('photo')->store('profile', 'public');
+            $validated['photo'] = $imagePath;
+        }
 
         Post::create($validated);
 

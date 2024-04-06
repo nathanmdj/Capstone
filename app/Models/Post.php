@@ -11,7 +11,8 @@ class Post extends Model
 
     protected $fillable = [
         'content',
-        'user_id'
+        'user_id',
+        'photo'
     ];
 
 
@@ -43,5 +44,12 @@ class Post extends Model
     public function bookmarked()
     {
         return $this->bookmarks()->where('user_id', auth()->id())->exists();
+    }
+
+    public function getImageUrl()
+    {
+        if ($this->photo) {
+            return url('storage/' . $this->photo);
+        }
     }
 }

@@ -52,6 +52,7 @@
 
     @if ($showing ?? false)
         <div class="date-time mb-2">
+            <img src="{{ $post->getImageUrl() }}" alt="" class="w-100 mb-3">
             <p>
                 {{ $post->created_at->timezone('Asia/Manila')->format('h:i A') }}
                 <span class="bi bi-dot m-0  fs-6"></span>
@@ -71,6 +72,12 @@
         </div>
         @include('include.comment-create')
     @else
+        @if ($editing ?? false)
+        @else
+            <a href="{{ route('post.show', $post->id) }}">
+                <img src="{{ $post->getImageUrl() }}" alt="" class="w-100 mb-3">
+            </a>
+        @endif
         <div class="post-actions d-flex justify-content-between pe-5">
             <span class="bi bi-chat"> {{ $post->comments()->count() }}</span>
 

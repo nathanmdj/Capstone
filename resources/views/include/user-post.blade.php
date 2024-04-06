@@ -58,6 +58,7 @@
 
             </p>
         </div>
+
         <div class="post-actions-2 py-2 d-flex justify-content-between pe-5">
             <span class="bi bi-chat"></span>
             <button class="like-btn btn px-2 py-0" data-post-id="{{ $post->id }}"
@@ -70,6 +71,9 @@
         </div>
         @include('include.comment-create')
     @else
+        <a href="{{ route('post.show', $post->id) }}">
+            <img src="{{ $post->getImageUrl() }}" alt="" class="w-100 mb-3">
+        </a>
         <div class="post-actions d-flex justify-content-between pe-5">
             <span class="bi bi-chat"></span>
             <button class="like-btn btn px-2 py-0" data-post-id="{{ $post->id }}"
