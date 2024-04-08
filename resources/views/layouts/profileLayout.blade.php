@@ -41,17 +41,19 @@
         <div class="row">
             @include('include.left-sidebar')
             <div class="col-2 "></div>
-            <div class="col-7 col-xl-8 main-content min-vh-100 p-0">
+            <div class="col-md-7 col-xl-8 main-content min-vh-100 p-0">
                 @yield('content')
             </div>
-            <div class="col-3 col-xl-2 sidebar-search">
+            <div class="d-none d-md-block col-3 col-xl-2 sidebar-search">
                 <div class="pt-2">
                     @include('include.search-bar')
                 </div>
             </div>
 
         </div>
-
+        <div class="mobile-nav fixed-bottom d-md-none">
+            @include('include.mobile-nav')
+        </div>
     </div>
 
 

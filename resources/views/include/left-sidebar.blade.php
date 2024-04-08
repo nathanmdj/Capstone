@@ -1,7 +1,10 @@
 <div class="d-none d-md-block col-md-2 sidebar-nav position-fixed">
     <div class="d-flex flex-column vh-100">
-
+        <div class="pt-2 logo d-none d-md-block d-md-flex justify-content-center d-xl-block">
+            <a href="{{ route('home') }}"> <img src="{{ asset('images/devx.png') }}" alt=""></a>
+        </div>
         <div class="d-flex flex-column justify-content-between vh-100 ">
+
             <div class="nav navbar ">
                 <ul class="nav d-flex flex-column w-100 align-items-center align-items-xl-start ">
                     <li class="nav-item">

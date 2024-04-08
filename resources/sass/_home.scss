@@ -1,12 +1,20 @@
+.header {
+    .main-header {
+        @media (max-width : map-get($grid-breakpoints, md)) {
+            border-bottom: solid rgba(128, 128, 128, 0.45) 0.5px;
+            // background-color: $primary;
+            backdrop-filter: blur(10px);
+            color: white;
+
+            .logo {
+                width: 60px;
+            }
+        }
+    }
+}
 .home-page {
     background-color: $primary;
-    // .main-header {
-    //     border-bottom: solid gray 0.5px;
-    //     background-color: $primary;
-    //     backdrop-filter: blur(10px);
-    //     opacity: 0.7;
-    //     color: white;
-    // }
+
 
     .home {
         margin-top: 60px;

@@ -28,7 +28,9 @@
 
 
         </div>
-
+        <div class="mobile-nav fixed-bottom d-md-none">
+            @include('include.mobile-nav')
+        </div>
     </div>
 
 
