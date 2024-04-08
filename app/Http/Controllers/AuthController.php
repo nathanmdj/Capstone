@@ -22,16 +22,20 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:8'
         ]);
 
-        User::create([
+        $user = User::create([
             'username' => $validated['username'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
         ]);
         Info::create([
-            'user_id' => auth()->id(),
-            'name' => auth()->user()->username
+            'user_id' => $user->id,
+            'name' => $user->username
         ]);
-        return redirect()->route('home');
+
+        if (auth()->attempt(['email' => $validated['email'], 'password' => $validated['password']])) {
+            request()->session()->regenerate();
+            return redirect()->route('home');
+        }
     }
 
     public function login()
@@ -47,12 +51,6 @@ class AuthController extends Controller
         ]);
 
         if (auth()->attempt($validated)) {
-            if (!auth()->user()->info) {
-                Info::create([
-                    'user_id' => auth()->id(),
-                    'name' => auth()->user()->username
-                ]);
-            }
             request()->session()->regenerate();
             return redirect()->route('home');
         }
