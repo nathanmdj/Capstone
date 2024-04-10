@@ -72,5 +72,9 @@
                     <button type="submit" class="btn btn-lg btn-light w-100 fs-6"><img src="images/google.png"
                             style="width: 20px" class="me-2"><small>Create account with Google</small></button>
                 </div>
+
+                <div class="row">
+                    <small>Already have account? <a href="{{ route('login') }}" style="color: blue">Sign In</a></small>
+                </div>
             </div>
         @endsection
