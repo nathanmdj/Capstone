@@ -22,6 +22,7 @@
                     class="bi bi-image"></span></button>
             <button type="submit" class="btn btn-danger">Post</button>
         </div>
+
     </form>
 </div>
 

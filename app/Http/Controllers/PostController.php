@@ -40,7 +40,7 @@ class PostController extends Controller
         }
 
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Post Sucess!');
     }
 
     public function show(Post $post)

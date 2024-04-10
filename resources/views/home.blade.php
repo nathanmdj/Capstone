@@ -6,4 +6,5 @@
             @include('include.post-card')
         @endforeach
     </div>
+    @include('include.flash-notif')
 @endsection
