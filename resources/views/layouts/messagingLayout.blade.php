@@ -18,22 +18,19 @@
 </head>
 
 <body>
-    <div class="container-xl messaging">
+    <div class="container-xl messaging ">
         <div class="row">
             @include('include.left-sidebar')
             <div class="d-none d-md-block col-md-2 "></div>
-            <div class="col-12 col-md-10  main-content vh-100 p-0">
+            <div class="col-md-10  main-content min-vh-100 p-0">
                 @yield('content')
             </div>
 
-
-        </div>
-        <div class="mobile-nav fixed-bottom d-md-none">
-            @include('include.mobile-nav')
         </div>
     </div>
-
-
+    <div class="mobile-nav fixed-bottom d-md-none">
+        @include('include.mobile-nav')
+    </div>
 
 
     <script>
@@ -41,41 +38,8 @@
             cluster: 'ap1'
         });
         const channel = pusher.subscribe('public');
-
-
-        channel.bind('chat', function(data) {
-            console.log('Received chat event:', data);
-            $.post("/devX/messages/receive", {
-                    _token: '{{ csrf_token() }}',
-                    message: data.message,
-                })
-                .done(function(res) {
-                    $(".chats-container > .chats").last().append(res);
-                    $(document).scrollTop($(document).height());
-                });
-        });
-
-        //Broadcast messages
-        $("#send").submit(function(event) {
-            event.preventDefault();
-
-            $.ajax({
-                url: "/devX/messages/broadcast",
-                method: 'POST',
-                headers: {
-                    'X-Socket-Id': pusher.connection.socket_id
-                },
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    message: $("#message").val(),
-                }
-            }).done(function(res) {
-                $(".chats-container > .chats").last().append(res);
-                $("#message").val('');
-                $(document).scrollTop($(document).height());
-            });
-        });
     </script>
+
 </body>
 
 </html>

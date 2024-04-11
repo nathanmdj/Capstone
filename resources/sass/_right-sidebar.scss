@@ -34,4 +34,18 @@
             }
         }
     }
+    .footer {
+        color: gray;
+        font-size: 0.7rem;
+        .links {
+            p {
+                margin: 0;
+            }
+            span {
+                font-size: 1.5rem;
+                line-height: 0;
+            }
+
+        }
+    }
 }

@@ -13,3 +13,4 @@ Route::post('/messages/newThread/{user}', [MessageController::class, 'newThread'
 
 Route::post('/messages/broadcast', [MessageController::class, 'broadcast'])->name('messages.broadcast')->middleware('auth');
 Route::post('/messages/receive', [MessageController::class, 'receive'])->name('messages.receive')->middleware('auth');
+Route::get('/messages/thread', [MessageController::class, 'conversation'])->middleware('auth');

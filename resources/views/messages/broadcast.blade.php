@@ -3,3 +3,4 @@
         <p>{{ $message }}</p>
     </div>
 </div>
+<p class="date-right">{{ \Carbon\Carbon::now()->diffForHumans() }}</p>

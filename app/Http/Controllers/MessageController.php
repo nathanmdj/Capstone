@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\PusherBroadcast;
+use App\Models\Message;
 use App\Models\MessageThread;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,14 +16,9 @@ class MessageController extends Controller
 
         $myThreads = MessageThread::whereHas('participants', function ($query) {
             $query->where('user_id', auth()->id());
-        })->orderByDesc('created_at')->get();
+        })->orderByDesc('updated_at')->get();
 
-
-
-        $latest = $myThreads->isNotEmpty() ? $myThreads->first()->load('participants') : null;
-
-
-        return view('messages.messages', compact('user', 'myThreads', 'latest'));
+        return view('messages.messages', compact('user', 'myThreads'));
     }
 
 
@@ -56,13 +52,34 @@ class MessageController extends Controller
     public function broadcast(Request $request)
     {
         $message = $request->get('message');
+        $threadID = $request->get('threadID');
+        $thread = MessageThread::where('id', $threadID);
+        $data = [
+            'content' => $message,
+            'msg_thread_id' => $threadID,
+            'user_id' => auth()->id(),
+        ];
+        Message::create($data);
+        $thread->touch();
         broadcast(new PusherBroadcast($message))->toOthers();
+
         return view('messages.broadcast', compact('message'));
     }
 
     public function receive(Request $request)
     {
         $message = $request->get('message');
+
         return view('messages.receive', compact('message'));
+    }
+
+    public function conversation(MessageThread $thread)
+    {
+        $id = request()->get('thread');
+        $selectedThread = $thread->where('id', $id)->with('participants')->get();
+
+        $messagesFromDB = Message::where('msg_thread_id', $id)->get();
+
+        return view('messages.chat', compact('selectedThread', 'messagesFromDB'));
     }
 }

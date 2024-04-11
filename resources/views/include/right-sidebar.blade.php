@@ -15,6 +15,18 @@
         @endforeach
 
     </div>
+    <div class="footer mt-3">
+        <div class="links d-flex align-items-center ">
+            <a href="">
+                <p>Terms of Use</p>
+            </a>
+            <span class="bi bi-dot"></span>
+            <a href="">
+                <p>Privacy Policy</p>
+            </a>
+        </div>
+        <p>&copy2024 DevX. All rights reserved.</p>
+    </div>
 </div>
 <script>
     window.addEventListener('scroll', function() {
