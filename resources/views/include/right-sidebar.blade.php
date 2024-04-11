@@ -17,7 +17,7 @@
     </div>
     <div class="footer mt-3">
         <div class="links d-flex align-items-center ">
-            <a href="">
+            <a href="{{route('terms')}}">
                 <p>Terms of Use</p>
             </a>
             <span class="bi bi-dot"></span>

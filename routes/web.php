@@ -13,6 +13,8 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\FooterController;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
@@ -57,3 +59,7 @@ Route::delete('bookmarks/{post}', [BookmarkController::class, 'destroy'])->name(
 Route::get('/resource', [ResourceController::class, 'show'])->name('resources')->middleware('auth');
 
 Route::get('/resource/{category}', [ResourceController::class, 'filter'])->name('resources.filter')->middleware('auth');
+
+Route::get('/footerTerms', [FooterController::class, 'terms'])->name('terms')->middleware('auth');
+
+Route::get('/privacy', [FooterController::class, 'privacy'])->name('privacy')->middleware('auth');
